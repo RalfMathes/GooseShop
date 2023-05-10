@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const router = express.Router();
 
-const database = require("./db").default;
+const database = require("./db");
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
