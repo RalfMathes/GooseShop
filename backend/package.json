@@ -1,0 +1,12 @@
+{
+  "name": "goose-shop-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "start": "node bin/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ralf Mathes",
+  "license": "MPL-2.0"
+}
