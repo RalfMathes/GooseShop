@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  Icon,
   IconButton,
   Menu,
   MenuItem,
@@ -40,6 +41,9 @@ const Navbar = () => {
     <AppBar position="sticky">
       <Container>
         <Toolbar>
+          <Icon className={classes.iconRoot}>
+            <img className={classes.imageIcon} src="/static/goose.svg" />
+          </Icon>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
