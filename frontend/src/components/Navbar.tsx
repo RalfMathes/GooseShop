@@ -87,27 +87,16 @@ const Navbar = () => {
     <AppBar position="sticky">
       <Container>
         <Toolbar>
-          <Typography sx={{ mr: 2 }}>
-            <Link style={{ textDecoration: "none", color: "white" }} to="/">
-              Home
-            </Link>
-          </Typography>
-          <Typography sx={{ mr: 2 }}>
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to="/collection"
-            >
-              Collections
-            </Link>
-          </Typography>
-          <Typography sx={{ flexGrow: 1 }}>
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to="/category"
-            >
-              Categories
-            </Link>
-          </Typography>
+          {pages.map((page, index) => (
+            <Typography key={page} sx={{ mr: 2 }}>
+              <Link
+                style={{ textDecoration: "none", color: "white" }}
+                to={paths[index]}
+              >
+                {page}
+              </Link>
+            </Typography>
+          ))}
           <Button>
             <Link style={{ textDecoration: "none", color: "white" }} to="/cart">
               Cart
