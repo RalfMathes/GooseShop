@@ -1,6 +1,5 @@
 import {
   AppBar,
-  Avatar,
   Box,
   Button,
   Container,
@@ -12,6 +11,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import { makeStyles } from "tss-react/mui";
 import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Link } from "react-router-dom";
@@ -21,6 +21,7 @@ const pages = ["Home", "Collections", "Categories"];
 const paths = ["/", "/collection", "/category"];
 
 const Navbar = () => {
+  const { classes } = useStyles();
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
@@ -115,3 +116,13 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+const useStyles = makeStyles()(() => ({
+  imageIcon: {
+    height: "100%",
+    fill: "white",
+  },
+  iconRoot: {
+    textAlign: "center",
+  },
+}));
