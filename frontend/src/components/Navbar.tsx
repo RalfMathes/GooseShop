@@ -44,14 +44,14 @@ const Navbar = () => {
           <Icon className={classes.iconRoot}>
             <img className={classes.imageIcon} src="/static/goose.svg" />
           </Icon>
-          <Box sx={{ flexGrow: 0 }}>
+          <Box className={classes.flexBoxCenter}>
             <Tooltip title="Page menu">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <MenuIcon style={{ color: "white" }} />
+              <IconButton onClick={handleOpenUserMenu}>
+                <MenuIcon className={classes.navBarIcon} />
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: "45px" }}
+              className={classes.navBarMenu}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -69,10 +69,7 @@ const Navbar = () => {
               {pages.map((page, index) => (
                 <MenuItem key={page}>
                   <Typography textAlign="center">
-                    <Link
-                      style={{ textDecoration: "none", color: "black" }}
-                      to={paths[index]}
-                    >
+                    <Link className={classes.navMenuLink} to={paths[index]}>
                       {page}
                     </Link>
                   </Typography>
@@ -81,7 +78,7 @@ const Navbar = () => {
             </Menu>
           </Box>
           <Button>
-            <Link style={{ textDecoration: "none", color: "white" }} to="/cart">
+            <Link className={classes.navBarLink} to="/cart">
               Cart
             </Link>
           </Button>
@@ -93,17 +90,14 @@ const Navbar = () => {
       <Container>
         <Toolbar>
           {pages.map((page, index) => (
-            <Typography key={page} sx={{ mr: 2 }}>
-              <Link
-                style={{ textDecoration: "none", color: "white" }}
-                to={paths[index]}
-              >
+            <Typography key={page} className={classes.navBarItem}>
+              <Link className={classes.navBarLink} to={paths[index]}>
                 {page}
               </Link>
             </Typography>
           ))}
           <Button>
-            <Link style={{ textDecoration: "none", color: "white" }} to="/cart">
+            <Link className={classes.navBarLink} to="/cart">
               Cart
             </Link>
           </Button>
@@ -116,11 +110,31 @@ const Navbar = () => {
 export default Navbar;
 
 const useStyles = makeStyles()(() => ({
+  flexBoxCenter: {
+    flexGrow: 0,
+  },
   imageIcon: {
     height: "100%",
     fill: "white",
   },
   iconRoot: {
     textAlign: "center",
+  },
+  navBarItem: {
+    marginRight: "16px",
+  },
+  navBarLink: {
+    textDecoration: "none",
+    color: "white",
+  },
+  navBarIcon: {
+    color: "white",
+  },
+  navBarMenu: {
+    marginTop: "45px",
+  },
+  navMenuLink: {
+    textDecoration: "none",
+    color: "black",
   },
 }));
