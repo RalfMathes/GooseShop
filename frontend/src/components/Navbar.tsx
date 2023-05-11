@@ -80,6 +80,11 @@ const Navbar = () => {
               ))}
             </Menu>
           </Box>
+          <Button>
+            <Link style={{ textDecoration: "none", color: "white" }} to="/cart">
+              Cart
+            </Link>
+          </Button>
         </Toolbar>
       </Container>
     </AppBar>
