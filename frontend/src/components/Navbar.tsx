@@ -45,7 +45,7 @@ const Navbar = () => {
             <img className={classes.imageIcon} src="/static/goose.svg" />
           </Icon>
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Page menu">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <MenuIcon style={{ color: "white" }} />
               </IconButton>
