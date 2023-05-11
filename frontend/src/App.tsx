@@ -5,6 +5,7 @@ import Collection from "./pages/Collection";
 import Cart from "./pages/Cart";
 import Category from "./pages/Category";
 import Item from "./pages/Item";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
