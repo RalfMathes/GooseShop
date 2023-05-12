@@ -17,22 +17,31 @@ import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Link } from "react-router-dom";
 import * as React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import { setAnchorElement } from "../redux/slices/anchorElementMenu/anchorElementMenu";
 
 const pages = ["Home", "Collections", "Categories"];
 const paths = ["/", "/collection", "/category"];
 
 const Navbar = () => {
-  const { classes } = useStyles();
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
+  const menuAnchorElement = useSelector<RootState, null | HTMLElement>(
+    (state) => state.anchorElement.element
   );
+  const dispatch = useDispatch();
+  const { classes } = useStyles();
+  // const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+  //   null
+  // );
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
+    // setAnchorElUser(event.currentTarget);
+    dispatch(setAnchorElement(event.currentTarget));
   };
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+    // setAnchorElUser(null);
+    dispatch(setAnchorElement(null));
   };
 
   const theme = useTheme();
@@ -53,7 +62,7 @@ const Navbar = () => {
             <Menu
               className={classes.navBarMenu}
               id="menu-appbar"
-              anchorEl={anchorElUser}
+              anchorEl={menuAnchorElement}
               anchorOrigin={{
                 vertical: "top",
                 horizontal: "right",
@@ -63,7 +72,7 @@ const Navbar = () => {
                 vertical: "top",
                 horizontal: "right",
               }}
-              open={Boolean(anchorElUser)}
+              open={Boolean(menuAnchorElement)}
               onClose={handleCloseUserMenu}
             >
               {pages.map((page, index) => (
