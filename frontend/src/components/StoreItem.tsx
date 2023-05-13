@@ -12,10 +12,10 @@ import { makeStyles } from "tss-react/mui";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import {
-  addItem,
+  increaseItem,
   decreaseCartCount,
   increaseCartCount,
-  removeItem,
+  decreaseItem,
 } from "../redux/slices/shoppingCart/shoppingCart";
 
 type StoreItemProps = {
@@ -44,12 +44,12 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
 
   const handleAddToCart = () => {
     dispatch(increaseCartCount());
-    dispatch(addItem(id));
+    dispatch(increaseItem(id));
   };
 
   const handleRemoveFromCart = () => {
     dispatch(decreaseCartCount());
-    dispatch(removeItem(id));
+    dispatch(decreaseItem(id));
   };
 
   return (
