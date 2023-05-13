@@ -15,35 +15,40 @@ import {
 } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import MenuIcon from "@mui/icons-material/Menu";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Link } from "react-router-dom";
 import * as React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { setAnchorElement } from "../redux/slices/anchorElementMenu/anchorElementMenu";
+import { useDispatch } from "react-redux";
+import ShoppingCart from "./ShoppingCart";
+import {
+  increaseCartCount,
+  decreaseCartCount,
+} from "../redux/slices/shoppingCart/shoppingCart";
 
 const pages = ["Collections", "Categories"];
 const paths = ["/collection", "/category"];
 
 const Navbar = () => {
-  const menuAnchorElement = useSelector<RootState, null | HTMLElement>(
-    (state) => state.anchorElement.element
-  );
   const dispatch = useDispatch();
   const { classes } = useStyles();
-  // const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-  //   null
-  // );
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null
+  );
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    // setAnchorElUser(event.currentTarget);
-    dispatch(setAnchorElement(event.currentTarget));
+    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseUserMenu = () => {
-    // setAnchorElUser(null);
-    dispatch(setAnchorElement(null));
+    setAnchorElUser(null);
+  };
+
+  const handleCartCountIncrease = () => {
+    dispatch(increaseCartCount());
+  };
+
+  const handleCartCountDecrease = () => {
+    dispatch(decreaseCartCount());
   };
 
   const theme = useTheme();
@@ -63,11 +68,9 @@ const Navbar = () => {
                 <img className={classes.imageIcon} src="/static/goose.svg" />
               </Link>
             </IconButton>
-            <IconButton>
-              <Link className={classes.navBarLink} to="/cart">
-                <ShoppingCartIcon />
-              </Link>
-            </IconButton>
+            <IconButton onClick={handleCartCountIncrease}>+</IconButton>
+            <IconButton onClick={handleCartCountDecrease}>-</IconButton>
+            <ShoppingCart />
             <Tooltip title="Page menu">
               <IconButton onClick={handleOpenUserMenu}>
                 <MenuIcon className={classes.navBarIcon} />
@@ -76,7 +79,7 @@ const Navbar = () => {
             <Menu
               className={classes.navBarMenu}
               id="menu-appbar"
-              anchorEl={menuAnchorElement}
+              anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: "top",
                 horizontal: "right",
@@ -86,7 +89,7 @@ const Navbar = () => {
                 vertical: "top",
                 horizontal: "right",
               }}
-              open={Boolean(menuAnchorElement)}
+              open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
               {pages.map((page, index) => (
@@ -120,11 +123,7 @@ const Navbar = () => {
             </Typography>
           ))}
           <Box className={classes.flexBoxRight} />
-          <IconButton>
-            <Link className={classes.navBarLink} to="/cart">
-              <ShoppingCartIcon />
-            </Link>
-          </IconButton>
+          <ShoppingCart />
         </Toolbar>
       </Container>
     </AppBar>
