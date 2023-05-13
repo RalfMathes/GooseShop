@@ -20,10 +20,6 @@ import { Link } from "react-router-dom";
 import * as React from "react";
 import { useDispatch } from "react-redux";
 import ShoppingCart from "./ShoppingCart";
-import {
-  increaseCartCount,
-  decreaseCartCount,
-} from "../redux/slices/shoppingCart/shoppingCart";
 
 const pages = ["Collections", "Categories"];
 const paths = ["/collection", "/category"];
