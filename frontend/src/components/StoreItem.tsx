@@ -2,20 +2,20 @@ import {
   Box,
   Button,
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Typography,
 } from "@mui/material";
-import formatCurrency from "../utilities/formatCurrency";
 import { makeStyles } from "tss-react/mui";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
+
 import {
   increaseItem,
   decreaseItem,
   removeItem,
 } from "../redux/slices/shoppingCart/shoppingCart";
+import formatCurrency from "../utilities/formatCurrency";
+import { RootState } from "../redux/store";
 
 type StoreItemProps = {
   id: number;
@@ -66,12 +66,12 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
         </Typography>
       </CardContent>
       {noItemsAdded ? (
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box className={classes.flexBoxCenter}>
           <Button onClick={handleIncreaseItem}>Add to Cart</Button>
         </Box>
       ) : (
         <>
-          <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box className={classes.flexBoxCenter}>
             <Button onClick={handleDecreaseItem}>-</Button>
             <Typography>{itemCount} in cart</Typography>
             <Button onClick={handleIncreaseItem}>+</Button>
@@ -88,6 +88,10 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
 export default StoreItem;
 
 const useStyles = makeStyles()(() => ({
+  flexBoxCenter: {
+    display: "flex",
+    alignItems: "center",
+  },
   itemCard: {
     height: 140,
   },
