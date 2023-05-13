@@ -36,6 +36,7 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
       state.shoppingCart.items.find((item: CartItem) => item.id == id)
         ?.quantity || 0
   );
+
   const { classes } = useStyles();
   const dispatch = useDispatch();
 
@@ -51,7 +52,6 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
     dispatch(removeItem(id));
   };
 
-  console.log("Item count of Item:" + id + " Count:" + itemCount);
   return (
     <Card>
       <CardMedia className={classes.itemCard} image={imgUrl} title={name} />
