@@ -13,9 +13,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import {
   increaseItem,
-  decreaseCartCount,
-  increaseCartCount,
   decreaseItem,
+  removeItem,
 } from "../redux/slices/shoppingCart/shoppingCart";
 
 type StoreItemProps = {
@@ -42,14 +41,16 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
 
   const noItemsAdded = itemCount === 0;
 
-  const handleAddToCart = () => {
-    dispatch(increaseCartCount());
+  const handleIncreaseItem = () => {
     dispatch(increaseItem(id));
   };
 
-  const handleRemoveFromCart = () => {
-    dispatch(decreaseCartCount());
+  const handleDecreaseItem = () => {
     dispatch(decreaseItem(id));
+  };
+
+  const handleRemoveItem = () => {
+    dispatch(removeItem(id));
   };
 
   return (
@@ -66,14 +67,19 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
       </CardContent>
       {noItemsAdded ? (
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Button onClick={handleAddToCart}>Add to Cart</Button>
+          <Button onClick={handleIncreaseItem}>Add to Cart</Button>
         </Box>
       ) : (
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Button onClick={handleRemoveFromCart}>-</Button>
-          <Typography>{itemCount} in cart</Typography>
-          <Button onClick={handleAddToCart}>+</Button>
-        </Box>
+        <>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Button onClick={handleDecreaseItem}>-</Button>
+            <Typography>{itemCount} in cart</Typography>
+            <Button onClick={handleIncreaseItem}>+</Button>
+          </Box>
+          <Box>
+            <Button onClick={handleRemoveItem}>Remove Item</Button>
+          </Box>
+        </>
       )}
     </Card>
   );
