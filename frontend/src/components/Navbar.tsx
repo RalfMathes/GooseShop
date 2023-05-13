@@ -43,14 +43,6 @@ const Navbar = () => {
     setAnchorElUser(null);
   };
 
-  const handleCartCountIncrease = () => {
-    dispatch(increaseCartCount());
-  };
-
-  const handleCartCountDecrease = () => {
-    dispatch(decreaseCartCount());
-  };
-
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   return matches ? (
@@ -68,8 +60,6 @@ const Navbar = () => {
                 <img className={classes.imageIcon} src="/static/goose.svg" />
               </Link>
             </IconButton>
-            <IconButton onClick={handleCartCountIncrease}>+</IconButton>
-            <IconButton onClick={handleCartCountDecrease}>-</IconButton>
             <ShoppingCart />
             <Tooltip title="Page menu">
               <IconButton onClick={handleOpenUserMenu}>
