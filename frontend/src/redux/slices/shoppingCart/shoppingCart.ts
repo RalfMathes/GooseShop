@@ -36,7 +36,7 @@ const shoppingCartSlice = createSlice({
       const targetId = action.payload;
 
       if (state.items.find((item) => item.id === targetId)?.quantity === 1) {
-        state.items.filter((item) => item.id != targetId);
+        state.items = state.items.filter((item) => item.id != targetId);
       } else {
         state.items.map((item) => {
           if (item.id === targetId) {
