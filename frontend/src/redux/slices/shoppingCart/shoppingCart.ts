@@ -1,18 +1,50 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
 
+type CartItem = {
+  id: number;
+  quantity: number;
+};
 export interface ShoppingCartState {
   count: number;
+  items: CartItem[];
 }
 
 const initialState: ShoppingCartState = {
   count: 0,
+  items: [],
 };
 
 const shoppingCartSlice = createSlice({
   name: "shoppingCart",
   initialState: initialState,
   reducers: {
+    addItem: (state, action) => {
+      const targetId = action.payload;
+
+      if (state.items.find((item) => item.id === targetId) == null) {
+        state.items.push({ id: targetId, quantity: 1 });
+      } else {
+        state.items.map((item) => {
+          if (item.id === targetId) {
+            item.quantity++;
+          }
+        });
+      }
+    },
+    removeItem: (state, action) => {
+      const targetId = action.payload;
+
+      if (state.items.find((item) => item.id === targetId)?.quantity === 1) {
+        state.items.filter((item) => item.id != targetId);
+      } else {
+        state.items.map((item) => {
+          if (item.id === targetId) {
+            item.quantity--;
+          }
+        });
+      }
+    },
     increaseCartCount: (state) => {
       state.count++;
     },
@@ -25,5 +57,5 @@ const shoppingCartSlice = createSlice({
 export default shoppingCartSlice.reducer;
 export const selectShoppingCartCount = (state: RootState) =>
   state.shoppingCart.count;
-export const { increaseCartCount, decreaseCartCount } =
+export const { addItem, removeItem, increaseCartCount, decreaseCartCount } =
   shoppingCartSlice.actions;
