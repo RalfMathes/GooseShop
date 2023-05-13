@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  Grid,
   Icon,
   IconButton,
   Menu,
@@ -14,6 +15,7 @@ import {
 } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import MenuIcon from "@mui/icons-material/Menu";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Link } from "react-router-dom";
 import * as React from "react";
@@ -21,8 +23,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { setAnchorElement } from "../redux/slices/anchorElementMenu/anchorElementMenu";
 
-const pages = ["Home", "Collections", "Categories"];
-const paths = ["/", "/collection", "/category"];
+const pages = ["Collections", "Categories"];
+const paths = ["/collection", "/category"];
 
 const Navbar = () => {
   const menuAnchorElement = useSelector<RootState, null | HTMLElement>(
@@ -47,13 +49,25 @@ const Navbar = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   return matches ? (
-    <AppBar position="sticky">
+    <AppBar className={classes.appBarMobile}>
       <Container>
         <Toolbar>
-          <Icon className={classes.iconRoot}>
-            <img className={classes.imageIcon} src="/static/goose.svg" />
-          </Icon>
-          <Box className={classes.flexBoxCenter}>
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-around"
+            alignItems="center"
+          >
+            <IconButton className={classes.iconRoot}>
+              <Link className={classes.navBarLink} to="/">
+                <img className={classes.imageIcon} src="/static/goose.svg" />
+              </Link>
+            </IconButton>
+            <IconButton>
+              <Link className={classes.navBarLink} to="/cart">
+                <ShoppingCartIcon />
+              </Link>
+            </IconButton>
             <Tooltip title="Page menu">
               <IconButton onClick={handleOpenUserMenu}>
                 <MenuIcon className={classes.navBarIcon} />
@@ -85,12 +99,7 @@ const Navbar = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
-          <Button>
-            <Link className={classes.navBarLink} to="/cart">
-              Cart
-            </Link>
-          </Button>
+          </Grid>
         </Toolbar>
       </Container>
     </AppBar>
@@ -98,6 +107,11 @@ const Navbar = () => {
     <AppBar position="sticky">
       <Container>
         <Toolbar>
+          <IconButton className={classes.iconRoot}>
+            <Link className={classes.navBarLink} to="/">
+              <img className={classes.imageIcon} src="/static/goose.svg" />
+            </Link>
+          </IconButton>
           {pages.map((page, index) => (
             <Typography key={page} className={classes.navBarItem}>
               <Link className={classes.navBarLink} to={paths[index]}>
@@ -105,11 +119,12 @@ const Navbar = () => {
               </Link>
             </Typography>
           ))}
-          <Button>
+          <Box className={classes.flexBoxRight} />
+          <IconButton>
             <Link className={classes.navBarLink} to="/cart">
-              Cart
+              <ShoppingCartIcon />
             </Link>
-          </Button>
+          </IconButton>
         </Toolbar>
       </Container>
     </AppBar>
@@ -119,12 +134,31 @@ const Navbar = () => {
 export default Navbar;
 
 const useStyles = makeStyles()(() => ({
+  mobileBarGrid: {
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  appBarMobile: {
+    borderRadius: "15px",
+    position: "fixed",
+    top: "auto",
+    bottom: 0,
+  },
   flexBoxCenter: {
     flexGrow: 0,
   },
+  flexBoxRight: {
+    flexGrow: 1,
+  },
+  flexBoxLeft: {
+    flexGrow: 2,
+  },
   imageIcon: {
-    height: "100%",
+    display: "flex",
+    height: "24px",
+    width: "24px",
     fill: "white",
+    stroke: "white",
   },
   iconRoot: {
     textAlign: "center",
@@ -140,7 +174,7 @@ const useStyles = makeStyles()(() => ({
     color: "white",
   },
   navBarMenu: {
-    marginTop: "45px",
+    marginTop: "-45px",
   },
   navMenuLink: {
     textDecoration: "none",
