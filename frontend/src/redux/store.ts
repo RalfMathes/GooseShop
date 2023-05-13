@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import anchorElementReducer from "../redux/slices/anchorElementMenu/anchorElementMenu";
+import shoppingCartReducer from "./slices/shoppingCart/shoppingCart";
 
 const store = configureStore({
   reducer: {
     anchorElement: anchorElementReducer,
+    shoppingCart: shoppingCartReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
