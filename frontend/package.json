@@ -22,6 +22,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.1",
     "redux": "^4.2.1",
+    "redux-persist": "^6.0.0",
     "styled-components": "^5.3.10",
     "tss-react": "^4.8.3"
   },
