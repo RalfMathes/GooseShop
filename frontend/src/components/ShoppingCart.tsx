@@ -22,11 +22,11 @@ const ShoppingCart = () => {
   );
 };
 
+export default ShoppingCart;
+
 const useStyles = makeStyles()(() => ({
   shoppingCartLink: {
     textDecoration: "none",
     color: "white",
   },
 }));
-
-export default ShoppingCart;
