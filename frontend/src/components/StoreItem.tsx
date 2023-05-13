@@ -24,7 +24,7 @@ type StoreItemProps = {
   imgUrl: string;
 };
 
-type CartItem = {
+type CartItemProps = {
   id: number;
   quantity: number;
 };
@@ -32,7 +32,7 @@ type CartItem = {
 const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
   const itemCount = useSelector<RootState, number>(
     (state) =>
-      state.shoppingCart.items.find((item: CartItem) => item.id == id)
+      state.shoppingCart.items.find((item: CartItemProps) => item.id == id)
         ?.quantity || 0
   );
 
