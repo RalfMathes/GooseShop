@@ -31,6 +31,10 @@ const shoppingCartSlice = createSlice({
           }
         });
       }
+      state.count = state.items.reduce(
+        (sum, current) => sum + current.quantity,
+        0
+      );
     },
     decreaseItem: (state, action) => {
       const targetId = action.payload;
@@ -44,12 +48,18 @@ const shoppingCartSlice = createSlice({
           }
         });
       }
+      state.count = state.items.reduce(
+        (sum, current) => sum + current.quantity,
+        0
+      );
     },
-    increaseCartCount: (state) => {
-      state.count++;
-    },
-    decreaseCartCount: (state) => {
-      state.count--;
+    removeItem: (state, action) => {
+      const targetId = action.payload;
+      state.items = state.items.filter((item) => item.id != targetId);
+      state.count = state.items.reduce(
+        (sum, current) => sum + current.quantity,
+        0
+      );
     },
   },
 });
@@ -57,9 +67,5 @@ const shoppingCartSlice = createSlice({
 export default shoppingCartSlice.reducer;
 export const selectShoppingCartCount = (state: RootState) =>
   state.shoppingCart.count;
-export const {
-  increaseItem,
-  decreaseItem,
-  increaseCartCount,
-  decreaseCartCount,
-} = shoppingCartSlice.actions;
+export const { increaseItem, decreaseItem, removeItem } =
+  shoppingCartSlice.actions;
