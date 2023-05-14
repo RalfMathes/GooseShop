@@ -6,8 +6,10 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  IconButton,
   Typography,
 } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 import formatCurrency from "../utilities/formatCurrency";
 import { makeStyles } from "tss-react/mui";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,6 +24,8 @@ import { fetchStoreItems } from "../redux/slices/storeItems/storeItems";
 
 type StoreItemProps = {
   id: number;
+  categoryId: number;
+  collectionId: number;
   name: string;
   price: number;
   imgUrl: string;
@@ -78,7 +82,9 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
         <Box className={classes.columnBox}>
           <Button onClick={handleIncreaseItem}>+</Button>
           <Button onClick={handleDecreaseItem}>-</Button>
-          <Button onClick={handleRemoveItem}>Remove Item</Button>
+          <Button onClick={handleRemoveItem}>
+            <DeleteIcon />
+          </Button>
         </Box>
       </Card>
     </Grid>
