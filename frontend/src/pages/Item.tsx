@@ -2,28 +2,14 @@ import { Box, Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import StoreItem from "../components/StoreItem";
 import { makeStyles } from "tss-react/mui";
-import useFilterItems from "../hooks/useFilterItems";
 import { useParams } from "react-router-dom";
 import useGetItem from "../hooks/useGetItem";
-
-type StoreItemProps = {
-  id: number;
-  categoryId: number;
-  collectionId: number;
-  name: string;
-  price: number;
-  imgUrl: string;
-};
 
 const Item = () => {
   const { itemId } = useParams();
   const filterId = Number.parseInt(itemId ?? "1");
   const { classes } = useStyles();
   const item = useGetItem(filterId);
-  const filteredItems: StoreItemProps[] = useFilterItems(
-    "collection",
-    filterId
-  );
 
   return (
     <>

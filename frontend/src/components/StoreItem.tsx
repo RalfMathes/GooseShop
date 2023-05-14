@@ -32,14 +32,7 @@ type CartItemProps = {
   quantity: number;
 };
 
-const StoreItem = ({
-  id,
-  categoryId,
-  collectionId,
-  name,
-  price,
-  imgUrl,
-}: StoreItemProps) => {
+const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
   const itemCount = useSelector<RootState, number>(
     (state) =>
       state.shoppingCartReducer.items.find(

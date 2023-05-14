@@ -2,11 +2,9 @@ import {
   Box,
   Button,
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Grid,
-  IconButton,
   Typography,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";

@@ -1,10 +1,8 @@
 import {
   AppBar,
   Box,
-  Button,
   Container,
   Grid,
-  Icon,
   IconButton,
   Menu,
   MenuItem,
@@ -18,14 +16,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Link } from "react-router-dom";
 import * as React from "react";
-import { useDispatch } from "react-redux";
 import ShoppingCart from "./ShoppingCart";
 
 const pages = ["Collections", "Categories"];
 const paths = ["/collection", "/category"];
 
 const Navbar = () => {
-  const dispatch = useDispatch();
   const { classes } = useStyles();
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
