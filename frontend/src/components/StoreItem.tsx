@@ -16,9 +16,12 @@ import {
 } from "../redux/slices/shoppingCart/shoppingCart";
 import formatCurrency from "../utilities/formatCurrency";
 import { RootState } from "../redux/store";
+import { Link } from "react-router-dom";
 
 type StoreItemProps = {
   id: number;
+  categoryId: number;
+  collectionId: number;
   name: string;
   price: number;
   imgUrl: string;
@@ -29,11 +32,19 @@ type CartItemProps = {
   quantity: number;
 };
 
-const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
+const StoreItem = ({
+  id,
+  categoryId,
+  collectionId,
+  name,
+  price,
+  imgUrl,
+}: StoreItemProps) => {
   const itemCount = useSelector<RootState, number>(
     (state) =>
-      state.shoppingCart.items.find((item: CartItemProps) => item.id == id)
-        ?.quantity || 0
+      state.shoppingCartReducer.items.find(
+        (item: CartItemProps) => item.id == id
+      )?.quantity || 0
   );
 
   const { classes } = useStyles();
@@ -55,7 +66,9 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
 
   return (
     <Card>
-      <CardMedia className={classes.itemCard} image={imgUrl} title={name} />
+      <Link to={`/item/${id}`}>
+        <CardMedia className={classes.itemCard} image={imgUrl} title={name} />
+      </Link>
       <CardContent>
         <Typography gutterBottom variant="h5">
           {name}
