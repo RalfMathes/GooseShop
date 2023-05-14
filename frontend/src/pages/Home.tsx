@@ -21,10 +21,10 @@ const Home = () => {
   const storeItems: StoreItemProps[] = useSelector<RootState, StoreItemProps[]>(
     (state) => state.storeItemsReducer.items
   );
-  const dispatch = useDispatch<AppDispatch>();
+  const appDispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchStoreItems());
+    appDispatch(fetchStoreItems());
   }, []);
   return (
     <>
