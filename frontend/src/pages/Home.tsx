@@ -9,6 +9,8 @@ import { makeStyles } from "tss-react/mui";
 
 type StoreItemProps = {
   id: number;
+  categoryId: number;
+  collectionId: number;
   name: string;
   price: number;
   imgUrl: string;
