@@ -125,9 +125,13 @@ const useStyles = makeStyles()(() => ({
   },
   appBarMobile: {
     borderRadius: "15px",
+    backdropFilter: "blur10px",
     position: "fixed",
     top: "auto",
     bottom: 0,
+    width: "96%",
+    marginRight: "2%",
+    marginBottom: "10px",
   },
   flexBoxCenter: {
     flexGrow: 0,
