@@ -19,32 +19,35 @@ const StoreCollection = ({ id, name, imgUrl }: CollectionsProps) => {
   const { classes } = useStyles();
 
   return (
-    <Card>
-      <CardMedia
-        className={classes.collectionCard}
-        image={imgUrl}
-        title={name}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5">
-          {name}
-        </Typography>
-        <Box sx={{ flexGrow: 1 }} />
-      </CardContent>
-      <Box className={classes.flexBoxCenter}>
-        <Button>
-          <Link className={classes.navMenuLink} to={`/collection/${id}`}>
-            Go to {name} collection
-          </Link>
-        </Button>
-      </Box>
-    </Card>
+    <Link className={classes.navMenuLink} to={`/collection/${id}`}>
+      <Card>
+        <CardMedia
+          className={classes.collectionCard}
+          image={imgUrl}
+          title={name}
+        />
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h5"
+            className={classes.contentTitle}
+          >
+            {name}
+          </Typography>
+          <Box sx={{ flexGrow: 1 }} />
+        </CardContent>
+      </Card>
+    </Link>
   );
 };
 
 export default StoreCollection;
 
 const useStyles = makeStyles()(() => ({
+  contentTitle: {
+    display: "flex",
+    justifyContent: "center",
+  },
   flexBoxCenter: {
     display: "flex",
     alignItems: "center",
