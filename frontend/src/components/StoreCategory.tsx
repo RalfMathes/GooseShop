@@ -19,28 +19,35 @@ const StoreCategory = ({ id, name, imgUrl }: CategoriesProps) => {
   const { classes } = useStyles();
 
   return (
-    <Card>
-      <CardMedia className={classes.categoryCard} image={imgUrl} title={name} />
-      <CardContent>
-        <Typography gutterBottom variant="h5">
-          {name}
-        </Typography>
-        <Box sx={{ flexGrow: 1 }} />
-      </CardContent>
-      <Box className={classes.flexBoxCenter}>
-        <Button>
-          <Link className={classes.navMenuLink} to={`/category/${id}`}>
-            Go to {name} category
-          </Link>
-        </Button>
-      </Box>
-    </Card>
+    <Link className={classes.navMenuLink} to={`/category/${id}`}>
+      <Card>
+        <CardMedia
+          className={classes.categoryCard}
+          image={imgUrl}
+          title={name}
+        />
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h5"
+            className={classes.contentTitle}
+          >
+            {name}
+          </Typography>
+          <Box sx={{ flexGrow: 1 }} />
+        </CardContent>
+      </Card>
+    </Link>
   );
 };
 
 export default StoreCategory;
 
 const useStyles = makeStyles()(() => ({
+  contentTitle: {
+    display: "flex",
+    justifyContent: "center",
+  },
   flexBoxCenter: {
     display: "flex",
     alignItems: "center",
