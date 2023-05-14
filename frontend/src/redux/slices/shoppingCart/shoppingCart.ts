@@ -66,6 +66,6 @@ const shoppingCartSlice = createSlice({
 
 export default shoppingCartSlice.reducer;
 export const selectShoppingCartCount = (state: RootState) =>
-  state.shoppingCart.count;
+  state.shoppingCartReducer.count;
 export const { increaseItem, decreaseItem, removeItem } =
   shoppingCartSlice.actions;

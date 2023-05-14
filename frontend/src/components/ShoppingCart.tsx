@@ -8,7 +8,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const ShoppingCart = () => {
   const { classes } = useStyles();
   const shoppingCartCount = useSelector<RootState, number>(
-    (state) => state.shoppingCart.count
+    (state) => state.shoppingCartReducer.count
   );
 
   return (

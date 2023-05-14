@@ -10,7 +10,7 @@ type CartItemProps = {
 
 const Cart = () => {
   const items = useSelector<RootState, CartItemProps[]>(
-    (state) => state.shoppingCart.items
+    (state) => state.shoppingCartReducer.items
   );
 
   return (

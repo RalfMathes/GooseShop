@@ -50,6 +50,6 @@ const storeItemsSlice = createSlice({
 });
 
 export default storeItemsSlice.reducer;
-export const selectShoppingCartCount = (state: RootState) =>
-  state.storeItems.items;
+export const selectStoreItems = (state: RootState) =>
+  state.storeItemsReducer.items;
 export { fetchStoreItems };

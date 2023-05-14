@@ -21,5 +21,5 @@ const anchorElementSlice = createSlice({
 
 export default anchorElementSlice.reducer;
 export const selectAnchorElement = (state: RootState) =>
-  state.anchorElement.element;
+  state.anchorElementReducer.element;
 export const { setAnchorElement } = anchorElementSlice.actions;

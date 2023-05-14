@@ -37,7 +37,7 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
   const dispatch = useDispatch();
   const appDispatch = useDispatch<AppDispatch>();
   const storeItems: StoreItemProps[] = useSelector<RootState, StoreItemProps[]>(
-    (state) => state.storeItems.items
+    (state) => state.storeItemsReducer.items
   );
 
   useEffect(() => {
