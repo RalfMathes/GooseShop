@@ -2,15 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { useEffect } from "react";
 import { fetchStoreItems } from "../redux/slices/storeItems/storeItems";
-
-type StoreItemProps = {
-  id: number;
-  categoryId: number;
-  collectionId: number;
-  name: string;
-  price: number;
-  imgUrl: string;
-};
+import { StoreItemProps } from "../types/StoreItemProps";
 
 const useFilterItems = (filterType: string, filterId: number) => {
   const appDispatch = useDispatch<AppDispatch>();
