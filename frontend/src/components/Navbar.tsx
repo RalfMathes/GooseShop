@@ -54,7 +54,10 @@ const Navbar = () => {
             <>
               <ShoppingCart />
               <Tooltip title="Page menu">
-                <IconButton onClick={handleOpenUserMenu}>
+                <IconButton
+                  className={classes.borderButton}
+                  onClick={handleOpenUserMenu}
+                >
                   <MenuIcon className={classes.navBarIcon} />
                 </IconButton>
               </Tooltip>
@@ -108,11 +111,21 @@ export default Navbar;
 
 const useStyles = makeStyles()(() => ({
   appBarDesktop: {
+    backgroundColor: "rgba(251, 139, 23, .75)",
+    backdropFilter: "blur(4px)",
+    borderBottom: "solid",
+    borderColor: "#fb8b17",
+    borderWidth: 2,
     marginBottom: 8,
     position: "sticky",
   },
   appBarMobile: {
+    backgroundColor: "rgba(251, 139, 23, .70)",
+    backdropFilter: "blur(4px)",
+    border: "solid",
+    borderColor: "#fb8b17",
     borderRadius: "15px",
+    borderWidth: 2,
     bottom: 0,
     left: "2%",
     marginBottom: "6px",
@@ -120,10 +133,20 @@ const useStyles = makeStyles()(() => ({
     top: "auto",
     width: "96%",
   },
+  borderButton: {
+    backgroundColor: "rgba(251, 139, 23, .40)",
+    border: "solid",
+    borderColor: "#fb8b17",
+    borderWidth: 1,
+  },
   flexBoxRight: {
     flexGrow: 1,
   },
   iconRoot: {
+    backgroundColor: "rgba(251, 139, 23, .40)",
+    border: "solid",
+    borderColor: "#fb8b17",
+    borderWidth: 1,
     textAlign: "center",
   },
   imageIcon: {
