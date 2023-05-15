@@ -1,18 +1,17 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { makeStyles } from "tss-react/mui";
 import StoreCategory from "../components/StoreCategory";
+import useGetCategories from "../hooks/useGetCategories";
 import { fetchCategories } from "../redux/slices/categories/categories";
 import { setTitle } from "../redux/slices/title/title";
-import { AppDispatch, RootState } from "../redux/store";
-import { CategoryProps } from "../types/CategoryProps";
+import { AppDispatch } from "../redux/store";
 
 const Categories = () => {
   const { classes } = useStyles();
-  const categories: CategoryProps[] = useSelector<RootState, CategoryProps[]>(
-    (state) => state.categoriesReducer.categories
-  );
+  const categories = useGetCategories();
+
   const appDispatch = useDispatch<AppDispatch>();
   const dispatch = useDispatch();
 

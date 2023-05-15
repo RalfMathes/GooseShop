@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "tss-react/mui";
 import StoreCategory from "../components/StoreCategory";
 import StoreCollection from "../components/StoreCollection";
+import useGetCategories from "../hooks/useGetCategories";
 import { fetchCategories } from "../redux/slices/categories/categories";
 import { fetchCollections } from "../redux/slices/collections/collections";
 import { setTitle } from "../redux/slices/title/title";
 import { AppDispatch, RootState } from "../redux/store";
-import { CategoryProps } from "../types/CategoryProps";
 import { CollectionProps } from "../types/CollectionProps";
 
 const Home = () => {
@@ -17,9 +17,7 @@ const Home = () => {
     RootState,
     CollectionProps[]
   >((state) => state.collectionsReducer.collections);
-  const categories: CategoryProps[] = useSelector<RootState, CategoryProps[]>(
-    (state) => state.categoriesReducer.categories
-  );
+  const categories = useGetCategories();
   const appDispatch = useDispatch<AppDispatch>();
   const dispatch = useDispatch();
 
