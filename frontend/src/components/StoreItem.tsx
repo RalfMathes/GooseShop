@@ -126,23 +126,23 @@ const useStyles = makeStyles()(() => ({
     marginLeft: 8,
     marginRight: 8,
   },
-  tagStack: {
-    flexWrap: "wrap",
-  },
-  storeItemCard: {
-    borderRadius: 10,
+  cardMedia: {
+    height: 140,
+    margin: 5,
   },
   flexBoxCenter: {
     display: "flex",
     justifyContent: "center",
     marginBottom: 10,
   },
-  cardMedia: {
-    height: 140,
-    margin: 5,
+  storeItemCard: {
+    borderRadius: 10,
   },
   tagChip: {
     marginBottom: 5,
     marginLeft: 5,
+  },
+  tagStack: {
+    flexWrap: "wrap",
   },
 }));

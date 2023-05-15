@@ -22,22 +22,22 @@ const MobileTopBar = () => {
 export default MobileTopBar;
 
 const useStyles = makeStyles()(() => ({
-  title: {
-    color: "white",
-  },
   mobileTopBar: {
-    display: "flex",
-    justifyContent: "center",
     alignItems: "center",
-    borderRadius: 15,
-    height: 56,
     backgroundColor: "#fb8b17",
-    position: "sticky",
-    left: "2%",
-    width: "96%",
-    marginTop: 6,
-    marginBottom: 8,
+    borderRadius: 15,
     boxShadow:
       "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+    display: "flex",
+    height: 56,
+    justifyContent: "center",
+    left: "2%",
+    marginBottom: 8,
+    marginTop: 6,
+    position: "sticky",
+    width: "96%",
+  },
+  title: {
+    color: "white",
   },
 }));

@@ -86,20 +86,20 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
 export default CartItem;
 
 const useStyles = makeStyles()(() => ({
-  flexCard: {
-    display: "flex",
-  },
   columnBox: {
-    display: "flex",
-    flexGrow: 2,
-    flexDirection: "column",
     alignItems: "end",
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: 2,
     justifyContent: "space-evenly",
     marginRight: 8,
   },
+  flexCard: {
+    display: "flex",
+  },
   itemCard: {
     height: 140,
-    width: 140,
     margin: 8,
+    width: 140,
   },
 }));

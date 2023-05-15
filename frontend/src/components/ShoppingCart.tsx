@@ -26,7 +26,7 @@ export default ShoppingCart;
 
 const useStyles = makeStyles()(() => ({
   shoppingCartLink: {
-    textDecoration: "none",
     color: "white",
+    textDecoration: "none",
   },
 }));

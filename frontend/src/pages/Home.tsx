@@ -62,6 +62,10 @@ const useStyles = makeStyles()(() => ({
     border: 2,
     borderStyle: "solid",
   },
+  contentTitle: {
+    display: "flex",
+    justifyContent: "center",
+  },
   scrollGrid: {
     display: "flex",
     flexDirection: "row",
@@ -69,9 +73,5 @@ const useStyles = makeStyles()(() => ({
     overflowX: "auto",
     overflowY: "hidden",
     whiteSpace: "nowrap",
-  },
-  contentTitle: {
-    display: "flex",
-    justifyContent: "center",
   },
 }));

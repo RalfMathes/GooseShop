@@ -40,25 +40,25 @@ const StoreCollection = ({ id, name, imgUrl }: CollectionProps) => {
 export default StoreCollection;
 
 const useStyles = makeStyles()(() => ({
-  collectionCardMobile: {
-    width: 200,
-  },
   collectionCardDesktop: {
     width: 400,
+  },
+  collectionCardMedia: {
+    height: 140,
+  },
+  collectionCardMobile: {
+    width: 200,
   },
   contentTitle: {
     display: "flex",
     justifyContent: "center",
   },
   flexBoxCenter: {
-    display: "flex",
     alignItems: "center",
-  },
-  collectionCardMedia: {
-    height: 140,
+    display: "flex",
   },
   navMenuLink: {
-    textDecoration: "none",
     color: "black",
+    textDecoration: "none",
   },
 }));

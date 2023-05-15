@@ -41,8 +41,8 @@ export default Collections;
 
 const useStyles = makeStyles()(() => ({
   titleBoxMobile: {
+    backgroundColor: "primary.bright",
     display: "flex",
     justifyContent: "center",
-    backgroundColor: "primary.bright",
   },
 }));

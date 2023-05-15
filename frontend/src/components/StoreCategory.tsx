@@ -40,25 +40,25 @@ const StoreCategory = ({ id, name, imgUrl }: CategoryProps) => {
 export default StoreCategory;
 
 const useStyles = makeStyles()(() => ({
-  categoryCardMobile: {
-    width: 200,
-  },
   categoryCardDesktop: {
     width: 400,
+  },
+  categoryCardMedia: {
+    height: 140,
+  },
+  categoryCardMobile: {
+    width: 200,
   },
   contentTitle: {
     display: "flex",
     justifyContent: "center",
   },
   flexBoxCenter: {
-    display: "flex",
     alignItems: "center",
-  },
-  categoryCardMedia: {
-    height: 140,
+    display: "flex",
   },
   navMenuLink: {
-    textDecoration: "none",
     color: "black",
+    textDecoration: "none",
   },
 }));
