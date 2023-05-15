@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom";
 import useGetCollection from "../hooks/useGetCollection";
 import { StoreItemProps } from "../types/StoreItemProps";
 import { useEffect, useState } from "react";
+import { setTitle } from "../redux/slices/title/title";
+import { useDispatch } from "react-redux";
 
 const Collection = () => {
   const { collectionId } = useParams();
@@ -20,6 +22,11 @@ const Collection = () => {
   const [visibleItems, setVisibleItems] =
     useState<StoreItemProps[]>(filteredItems);
   const [activeTag, setActiveTag] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setTitle("Collection: " + collection?.name));
+  }, []);
 
   useEffect(() => {
     if (activeTag !== "") {
@@ -35,9 +42,6 @@ const Collection = () => {
 
   return (
     <>
-      <Box className={classes.titleBoxMobile}>
-        <Typography variant="h3">{collection?.name}</Typography>
-      </Box>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {visibleItems.map((item) => (
           <Grid key={item.id} item xs={12} sm={6}>
@@ -60,10 +64,4 @@ const Collection = () => {
 
 export default Collection;
 
-const useStyles = makeStyles()(() => ({
-  titleBoxMobile: {
-    display: "flex",
-    justifyContent: "center",
-    backgroundColor: "primary.bright",
-  },
-}));
+const useStyles = makeStyles()(() => ({}));
