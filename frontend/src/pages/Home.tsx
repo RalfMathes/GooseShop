@@ -1,11 +1,3 @@
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Grid,
-  Stack,
-} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +9,7 @@ import StoreCategory from "../components/StoreCategory";
 import StoreCollection from "../components/StoreCollection";
 import { CategoryProps } from "../types/CategoryProps";
 import { CollectionProps } from "../types/CollectionProps";
+import { setTitle } from "../redux/slices/title/title";
 
 const Home = () => {
   const { classes } = useStyles();
@@ -28,41 +21,36 @@ const Home = () => {
     (state) => state.categoriesReducer.categories
   );
   const appDispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     appDispatch(fetchCategories());
     appDispatch(fetchCollections());
+    dispatch(setTitle("Home"));
   }, []);
 
   return (
     <>
-      {/* <DesktopSpacer /> */}
-      <Box className={classes.titleBoxMobile}>
-        <Typography variant="h3">Home</Typography>
-      </Box>
       <div>
-        <div>
-          <Typography variant="h4" className={classes.contentTitle}>
-            Categories
-          </Typography>
-          <div className={classes.scrollGrid}>
-            {categories.map((category) => (
-              <StoreCategory key={category.id} {...category} />
-            ))}
-          </div>
-        </div>
-        <div>
-          <Typography variant="h4" className={classes.contentTitle}>
-            Collections
-          </Typography>
-          <div className={classes.scrollGrid}>
-            {collections.map((collection) => (
-              <StoreCollection key={collection.id} {...collection} />
-            ))}
-          </div>
+        <Typography variant="h4" className={classes.contentTitle}>
+          Categories
+        </Typography>
+        <div className={classes.scrollGrid}>
+          {categories.map((category) => (
+            <StoreCategory key={category.id} {...category} />
+          ))}
         </div>
       </div>
-      {/* <MobileSpacer /> */}
+      <div>
+        <Typography variant="h4" className={classes.contentTitle}>
+          Collections
+        </Typography>
+        <div className={classes.scrollGrid}>
+          {collections.map((collection) => (
+            <StoreCollection key={collection.id} {...collection} />
+          ))}
+        </div>
+      </div>
     </>
   );
 };
@@ -70,6 +58,10 @@ const Home = () => {
 export default Home;
 
 const useStyles = makeStyles()(() => ({
+  borderDiv: {
+    border: 2,
+    borderStyle: "solid",
+  },
   scrollGrid: {
     display: "flex",
     flexDirection: "row",
@@ -81,10 +73,5 @@ const useStyles = makeStyles()(() => ({
   contentTitle: {
     display: "flex",
     justifyContent: "center",
-  },
-  titleBoxMobile: {
-    display: "flex",
-    justifyContent: "center",
-    backgroundColor: "primary.bright",
   },
 }));
