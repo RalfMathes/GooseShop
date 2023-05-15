@@ -1,23 +1,24 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import { Link } from "react-router-dom";
 import { CategoryProps } from "../types/CategoryProps";
+import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
 
 const StoreCategory = ({ id, name, imgUrl }: CategoryProps) => {
   const { classes } = useStyles();
+  const isMobileView = useGetBreakpointBool();
 
   return (
     <Link className={classes.navMenuLink} to={`/category/${id}`}>
-      <Card>
+      <Card
+        className={
+          isMobileView
+            ? classes.categoryCardMobile
+            : classes.categoryCardDesktop
+        }
+      >
         <CardMedia
-          className={classes.categoryCard}
+          className={classes.categoryCardMedia}
           image={imgUrl}
           title={name}
         />
@@ -39,6 +40,12 @@ const StoreCategory = ({ id, name, imgUrl }: CategoryProps) => {
 export default StoreCategory;
 
 const useStyles = makeStyles()(() => ({
+  categoryCardMobile: {
+    width: 200,
+  },
+  categoryCardDesktop: {
+    width: 400,
+  },
   contentTitle: {
     display: "flex",
     justifyContent: "center",
@@ -47,7 +54,7 @@ const useStyles = makeStyles()(() => ({
     display: "flex",
     alignItems: "center",
   },
-  categoryCard: {
+  categoryCardMedia: {
     height: 140,
   },
   navMenuLink: {
