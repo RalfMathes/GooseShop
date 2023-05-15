@@ -1,11 +1,11 @@
-import { BrowserRouter } from "react-router-dom";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { StrictMode } from "react";
+import { BrowserRouter } from "react-router-dom";
 
+import { PersistGate } from "redux-persist/integration/react";
 import App from "./App";
 import store, { persistor } from "./redux/store";
-import { PersistGate } from "redux-persist/integration/react";
 
 createRoot(document.getElementById("root") as HTMLElement).render(
   <StrictMode>

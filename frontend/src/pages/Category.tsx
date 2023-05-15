@@ -1,14 +1,13 @@
-import { Box, Grid } from "@mui/material";
-import Typography from "@mui/material/Typography";
-import StoreItem from "../components/StoreItem";
-import { makeStyles } from "tss-react/mui";
-import useFilterItems from "../hooks/useFilterItems";
-import { useParams } from "react-router-dom";
-import useGetCategory from "../hooks/useGetCategory";
-import { StoreItemProps } from "../types/StoreItemProps";
+import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
-import { setTitle } from "../redux/slices/title/title";
 import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { makeStyles } from "tss-react/mui";
+import StoreItem from "../components/StoreItem";
+import useFilterItems from "../hooks/useFilterItems";
+import useGetCategory from "../hooks/useGetCategory";
+import { setTitle } from "../redux/slices/title/title";
+import { StoreItemProps } from "../types/StoreItemProps";
 
 const Category = () => {
   const { categoryId } = useParams();

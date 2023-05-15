@@ -1,12 +1,12 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCategories } from "../redux/slices/categories/categories";
-import { AppDispatch, RootState } from "../redux/store";
 import { makeStyles } from "tss-react/mui";
 import StoreCategory from "../components/StoreCategory";
-import { CategoryProps } from "../types/CategoryProps";
+import { fetchCategories } from "../redux/slices/categories/categories";
 import { setTitle } from "../redux/slices/title/title";
+import { AppDispatch, RootState } from "../redux/store";
+import { CategoryProps } from "../types/CategoryProps";
 
 const Categories = () => {
   const { classes } = useStyles();

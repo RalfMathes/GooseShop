@@ -1,3 +1,6 @@
+import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
+import RemoveIcon from "@mui/icons-material/Remove";
 import {
   Box,
   Button,
@@ -7,22 +10,19 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import formatCurrency from "../utilities/formatCurrency";
-import { makeStyles } from "tss-react/mui";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../redux/store";
+import { makeStyles } from "tss-react/mui";
 import {
-  increaseItem,
   decreaseItem,
+  increaseItem,
   removeItem,
 } from "../redux/slices/shoppingCart/shoppingCart";
-import { useEffect } from "react";
 import { fetchStoreItems } from "../redux/slices/storeItems/storeItems";
-import { StoreItemProps } from "../types/StoreItemProps";
+import { AppDispatch, RootState } from "../redux/store";
 import { CartItemProps } from "../types/CartItemProps";
+import { StoreItemProps } from "../types/StoreItemProps";
+import formatCurrency from "../utilities/formatCurrency";
 
 const CartItem = ({ id, quantity }: CartItemProps) => {
   const { classes } = useStyles();

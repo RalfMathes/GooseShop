@@ -1,8 +1,8 @@
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
-import { makeStyles } from "tss-react/mui";
 import { Link } from "react-router-dom";
-import { CollectionProps } from "../types/CollectionProps";
+import { makeStyles } from "tss-react/mui";
 import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
+import { CollectionProps } from "../types/CollectionProps";
 
 const StoreCollection = ({ id, name, imgUrl }: CollectionProps) => {
   const { classes } = useStyles();

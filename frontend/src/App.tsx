@@ -1,18 +1,17 @@
-import { Routes, Route } from "react-router-dom";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import Container from "@mui/material/Container";
-import Home from "./pages/Home";
-import Collections from "./pages/Collections";
+import { Route, Routes } from "react-router-dom";
+import MobileSpacer from "./components/MobileSpacer";
+import MobileTopBar from "./components/MobileTopBar";
+import Navbar from "./components/Navbar";
 import Cart from "./pages/Cart";
 import Categories from "./pages/Categories";
-import Item from "./pages/Item";
-import Navbar from "./components/Navbar";
-import { CssBaseline, createTheme } from "@mui/material";
-import { ThemeProvider } from "@mui/material";
 import Category from "./pages/Category";
 import Collection from "./pages/Collection";
-import MobileSpacer from "./components/MobileSpacer";
+import Collections from "./pages/Collections";
+import Home from "./pages/Home";
+import Item from "./pages/Item";
 import theme from "./theme";
-import MobileTopBar from "./components/MobileTopBar";
 
 const App = () => {
   return (

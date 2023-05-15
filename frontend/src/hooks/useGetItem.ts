@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../redux/store";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchStoreItems } from "../redux/slices/storeItems/storeItems";
+import { AppDispatch, RootState } from "../redux/store";
 import { CollectionProps } from "../types/CollectionProps";
 
 const useGetItems = (filterId: number) => {

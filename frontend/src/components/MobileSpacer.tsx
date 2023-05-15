@@ -1,5 +1,5 @@
-import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
 import { makeStyles } from "tss-react/mui";
+import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
 
 const MobileSpacer = () => {
   const isMobileView = useGetBreakpointBool();

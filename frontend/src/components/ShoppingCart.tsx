@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { makeStyles } from "tss-react/mui";
-import { Badge, IconButton } from "@mui/material";
-import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Badge, IconButton } from "@mui/material";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { makeStyles } from "tss-react/mui";
+import { RootState } from "../redux/store";
 
 const ShoppingCart = () => {
   const { classes } = useStyles();

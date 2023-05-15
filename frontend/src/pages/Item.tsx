@@ -1,11 +1,10 @@
-import { Box, Grid } from "@mui/material";
-import Typography from "@mui/material/Typography";
-import StoreItem from "../components/StoreItem";
-import { makeStyles } from "tss-react/mui";
-import { useParams } from "react-router-dom";
-import useGetItem from "../hooks/useGetItem";
-import { useDispatch } from "react-redux";
+import { Grid } from "@mui/material";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { makeStyles } from "tss-react/mui";
+import StoreItem from "../components/StoreItem";
+import useGetItem from "../hooks/useGetItem";
 import { setTitle } from "../redux/slices/title/title";
 
 const Item = () => {

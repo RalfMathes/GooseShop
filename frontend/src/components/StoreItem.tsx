@@ -1,3 +1,5 @@
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import {
   Box,
   Button,
@@ -8,21 +10,19 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import { makeStyles } from "tss-react/mui";
 import { useDispatch, useSelector } from "react-redux";
+import { makeStyles } from "tss-react/mui";
 
+import { Link } from "react-router-dom";
 import {
-  increaseItem,
   decreaseItem,
+  increaseItem,
   removeItem,
 } from "../redux/slices/shoppingCart/shoppingCart";
-import formatCurrency from "../utilities/formatCurrency";
 import { RootState } from "../redux/store";
-import { Link } from "react-router-dom";
-import { StoreItemProps } from "../types/StoreItemProps";
 import { CartItemProps } from "../types/CartItemProps";
+import { StoreItemProps } from "../types/StoreItemProps";
+import formatCurrency from "../utilities/formatCurrency";
 
 const StoreItem = ({
   id,

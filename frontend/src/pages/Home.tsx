@@ -1,15 +1,15 @@
 import Typography from "@mui/material/Typography";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../redux/store";
 import { makeStyles } from "tss-react/mui";
-import { fetchCategories } from "../redux/slices/categories/categories";
-import { fetchCollections } from "../redux/slices/collections/collections";
 import StoreCategory from "../components/StoreCategory";
 import StoreCollection from "../components/StoreCollection";
+import { fetchCategories } from "../redux/slices/categories/categories";
+import { fetchCollections } from "../redux/slices/collections/collections";
+import { setTitle } from "../redux/slices/title/title";
+import { AppDispatch, RootState } from "../redux/store";
 import { CategoryProps } from "../types/CategoryProps";
 import { CollectionProps } from "../types/CollectionProps";
-import { setTitle } from "../redux/slices/title/title";
 
 const Home = () => {
   const { classes } = useStyles();

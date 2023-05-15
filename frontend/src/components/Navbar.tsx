@@ -1,3 +1,4 @@
+import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
   Box,
@@ -9,12 +10,11 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { makeStyles } from "tss-react/mui";
-import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
 import * as React from "react";
-import ShoppingCart from "./ShoppingCart";
+import { Link } from "react-router-dom";
+import { makeStyles } from "tss-react/mui";
 import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
+import ShoppingCart from "./ShoppingCart";
 
 const pages = ["Collections", "Categories"];
 const paths = ["/collection", "/category"];

@@ -1,12 +1,12 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
 import { makeStyles } from "tss-react/mui";
 import CartItem from "../components/CartItem";
-import { CartItemProps } from "../types/CartItemProps";
 import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
-import { useEffect } from "react";
 import { setTitle } from "../redux/slices/title/title";
+import { RootState } from "../redux/store";
+import { CartItemProps } from "../types/CartItemProps";
 
 const Cart = () => {
   const { classes } = useStyles();
