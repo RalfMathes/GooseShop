@@ -1,22 +1,22 @@
 import {
   AppBar,
   Box,
-  Container,
   Grid,
   IconButton,
   Menu,
   MenuItem,
+  Stack,
   Toolbar,
   Tooltip,
   Typography,
-  useTheme,
 } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import MenuIcon from "@mui/icons-material/Menu";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { Link } from "react-router-dom";
 import * as React from "react";
 import ShoppingCart from "./ShoppingCart";
+import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
+import Tagbox from "./Tagbox";
 
 const pages = ["Collections", "Categories"];
 const paths = ["/collection", "/category"];
@@ -35,79 +35,74 @@ const Navbar = () => {
     setAnchorElUser(null);
   };
 
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("sm"));
-  return matches ? (
-    <AppBar className={classes.appBarMobile}>
-      <Container>
-        <Toolbar>
-          <Grid
-            container
-            direction="row"
-            justifyContent="space-around"
-            alignItems="center"
-          >
-            <IconButton className={classes.iconRoot}>
-              <Link className={classes.navBarLink} to="/">
-                <img className={classes.imageIcon} src="/static/goose.svg" />
-              </Link>
-            </IconButton>
-            <ShoppingCart />
-            <Tooltip title="Page menu">
-              <IconButton onClick={handleOpenUserMenu}>
-                <MenuIcon className={classes.navBarIcon} />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              className={classes.navBarMenu}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {pages.map((page, index) => (
-                <MenuItem key={page}>
-                  <Typography textAlign="center">
-                    <Link className={classes.navMenuLink} to={paths[index]}>
-                      {page}
-                    </Link>
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Grid>
-        </Toolbar>
-      </Container>
-    </AppBar>
-  ) : (
-    <AppBar position="sticky">
-      <Container>
-        <Toolbar>
+  const isMobileView = useGetBreakpointBool();
+  return (
+    <AppBar
+      className={isMobileView ? classes.appBarMobile : classes.appBarDesktop}
+    >
+      <Toolbar>
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-around"
+          alignItems="center"
+        >
           <IconButton className={classes.iconRoot}>
             <Link className={classes.navBarLink} to="/">
               <img className={classes.imageIcon} src="/static/goose.svg" />
             </Link>
           </IconButton>
-          {pages.map((page, index) => (
-            <Typography key={page} className={classes.navBarItem}>
-              <Link className={classes.navBarLink} to={paths[index]}>
-                {page}
-              </Link>
-            </Typography>
-          ))}
-          <Box className={classes.flexBoxRight} />
-          <ShoppingCart />
-        </Toolbar>
-      </Container>
+          {isMobileView ? (
+            <>
+              <ShoppingCart />
+              <Tooltip title="Page menu">
+                <IconButton onClick={handleOpenUserMenu}>
+                  <MenuIcon className={classes.navBarIcon} />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                className={classes.navBarMenu}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {pages.map((page, index) => (
+                  <MenuItem key={page}>
+                    <Typography textAlign="center">
+                      <Link className={classes.navMenuLink} to={paths[index]}>
+                        {page}
+                      </Link>
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </>
+          ) : (
+            <>
+              {pages.map((page, index) => (
+                <Typography key={page} className={classes.navBarItem}>
+                  <Link className={classes.navBarLink} to={paths[index]}>
+                    {page}
+                  </Link>
+                </Typography>
+              ))}
+              <Tagbox />
+              <Box className={classes.flexBoxRight} />
+              <ShoppingCart />
+            </>
+          )}
+        </Grid>
+      </Toolbar>
     </AppBar>
   );
 };
@@ -121,29 +116,24 @@ const useStyles = makeStyles()(() => ({
   },
   appBarMobile: {
     borderRadius: "15px",
-    backdropFilter: "blur10px",
     position: "fixed",
     top: "auto",
     bottom: 0,
+    left: "2%",
     width: "96%",
-    marginRight: "2%",
-    marginBottom: "10px",
+    marginBottom: "6px",
   },
-  flexBoxCenter: {
-    flexGrow: 0,
+  appBarDesktop: {
+    position: "sticky",
   },
   flexBoxRight: {
     flexGrow: 1,
-  },
-  flexBoxLeft: {
-    flexGrow: 2,
   },
   imageIcon: {
     display: "flex",
     height: "24px",
     width: "24px",
-    fill: "white",
-    stroke: "white",
+    filter: "invert(100%)",
   },
   iconRoot: {
     textAlign: "center",
