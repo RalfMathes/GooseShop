@@ -5,18 +5,13 @@ import { fetchCollections } from "../redux/slices/collections/collections";
 import { AppDispatch, RootState } from "../redux/store";
 import { makeStyles } from "tss-react/mui";
 import StoreCollection from "../components/StoreCollection";
-
-type CollectionsProps = {
-  id: number;
-  name: string;
-  imgUrl: string;
-};
+import { CollectionProps } from "../types/CollectionProps";
 
 const Collections = () => {
   const { classes } = useStyles();
-  const collections: CollectionsProps[] = useSelector<
+  const collections: CollectionProps[] = useSelector<
     RootState,
-    CollectionsProps[]
+    CollectionProps[]
   >((state) => state.collectionsReducer.collections);
   const appDispatch = useDispatch<AppDispatch>();
 

@@ -2,12 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { useEffect } from "react";
 import { fetchCollections } from "../redux/slices/collections/collections";
-
-type CollectionProps = {
-  id: number;
-  name: string;
-  imgUrl: string;
-};
+import { CollectionProps } from "../types/CollectionProps";
 
 const useGetCollection = (filterId: number) => {
   const appDispatch = useDispatch<AppDispatch>();

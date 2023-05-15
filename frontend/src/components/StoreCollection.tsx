@@ -8,14 +8,9 @@ import {
 } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import { Link } from "react-router-dom";
+import { CollectionProps } from "../types/CollectionProps";
 
-type CollectionsProps = {
-  id: number;
-  name: string;
-  imgUrl: string;
-};
-
-const StoreCollection = ({ id, name, imgUrl }: CollectionsProps) => {
+const StoreCollection = ({ id, name, imgUrl }: CollectionProps) => {
   const { classes } = useStyles();
 
   return (

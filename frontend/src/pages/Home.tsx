@@ -16,12 +16,7 @@ import { fetchCollections } from "../redux/slices/collections/collections";
 import StoreCategory from "../components/StoreCategory";
 import StoreCollection from "../components/StoreCollection";
 import { CategoryProps } from "../types/CategoryProps";
-
-type CollectionProps = {
-  id: number;
-  name: string;
-  imgUrl: string;
-};
+import { CollectionProps } from "../types/CollectionProps";
 
 const Home = () => {
   const { classes } = useStyles();
