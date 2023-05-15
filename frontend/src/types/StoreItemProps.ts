@@ -5,4 +5,5 @@ export type StoreItemProps = {
   name: string;
   price: number;
   imgUrl: string;
+  tags: string[];
 };
