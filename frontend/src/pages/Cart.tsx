@@ -4,6 +4,7 @@ import { RootState } from "../redux/store";
 import { makeStyles } from "tss-react/mui";
 import CartItem from "../components/CartItem";
 import { CartItemProps } from "../types/CartItemProps";
+import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
 
 const Cart = () => {
   const { classes } = useStyles();
