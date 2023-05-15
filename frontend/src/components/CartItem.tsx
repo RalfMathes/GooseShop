@@ -19,15 +19,7 @@ import {
 } from "../redux/slices/shoppingCart/shoppingCart";
 import { useEffect } from "react";
 import { fetchStoreItems } from "../redux/slices/storeItems/storeItems";
-
-type StoreItemProps = {
-  id: number;
-  categoryId: number;
-  collectionId: number;
-  name: string;
-  price: number;
-  imgUrl: string;
-};
+import { StoreItemProps } from "../types/StoreItemProps";
 
 type CartItemProps = {
   id: number;

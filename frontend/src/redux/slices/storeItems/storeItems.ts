@@ -1,15 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
 import axios from "axios";
-
-type StoreItemProps = {
-  id: number;
-  categoryId: number;
-  collectionId: number;
-  name: string;
-  price: number;
-  imgUrl: string;
-};
+import { StoreItemProps } from "../../../types/StoreItemProps";
 export interface StoreItemsState {
   loading: boolean;
   items: StoreItemProps[];

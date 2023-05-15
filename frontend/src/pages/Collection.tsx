@@ -5,15 +5,7 @@ import { makeStyles } from "tss-react/mui";
 import useFilterItems from "../hooks/useFilterItems";
 import { useParams } from "react-router-dom";
 import useGetCollection from "../hooks/useGetCollection";
-
-type StoreItemProps = {
-  id: number;
-  categoryId: number;
-  collectionId: number;
-  name: string;
-  price: number;
-  imgUrl: string;
-};
+import { StoreItemProps } from "../types/StoreItemProps";
 
 const Collection = () => {
   const { collectionId } = useParams();
