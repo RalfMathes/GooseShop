@@ -6,6 +6,7 @@ import useFilterItems from "../hooks/useFilterItems";
 import { useParams } from "react-router-dom";
 import useGetCollection from "../hooks/useGetCollection";
 import { StoreItemProps } from "../types/StoreItemProps";
+import { useEffect, useState } from "react";
 
 const Collection = () => {
   const { collectionId } = useParams();
@@ -16,6 +17,21 @@ const Collection = () => {
     "collection",
     filterId
   );
+  const [visibleItems, setVisibleItems] =
+    useState<StoreItemProps[]>(filteredItems);
+  const [activeTag, setActiveTag] = useState("");
+
+  useEffect(() => {
+    if (activeTag !== "") {
+      setVisibleItems(
+        visibleItems.filter((item) => item.tags.includes(activeTag))
+      );
+    }
+  }, [activeTag]);
+
+  const storeItemCallback = (event: any, tag: string) => {
+    setActiveTag(tag);
+  };
 
   return (
     <>
@@ -23,9 +39,18 @@ const Collection = () => {
         <Typography variant="h3">{collection?.name}</Typography>
       </Box>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        {filteredItems.map((item) => (
+        {visibleItems.map((item) => (
           <Grid key={item.id} item xs={12} sm={6}>
-            <StoreItem {...item} />
+            <StoreItem
+              id={item.id}
+              categoryId={item.categoryId}
+              collectionId={item.collectionId}
+              name={item.name}
+              price={item.price}
+              imgUrl={item.imgUrl}
+              tags={item.tags}
+              onTagClick={storeItemCallback}
+            />
           </Grid>
         ))}
       </Grid>
