@@ -11,20 +11,7 @@ import { ThemeProvider } from "@mui/material";
 import Category from "./pages/Category";
 import Collection from "./pages/Collection";
 import MobileSpacer from "./components/MobileSpacer";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#fb8b17",
-    },
-    secondary: {
-      main: "#ff7500",
-    },
-    background: {
-      default: "#fff8eb",
-    },
-  },
-});
+import theme from "./theme";
 
 const App = () => {
   return (
