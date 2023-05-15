@@ -75,7 +75,7 @@ const Navbar = () => {
                 onClose={handleCloseUserMenu}
               >
                 {pages.map((page, index) => (
-                  <MenuItem key={page}>
+                  <MenuItem key={index}>
                     <Typography textAlign="center">
                       <Link className={classes.navMenuLink} to={paths[index]}>
                         {page}
@@ -88,7 +88,7 @@ const Navbar = () => {
           ) : (
             <>
               {pages.map((page, index) => (
-                <Typography key={page} className={classes.navBarItem}>
+                <Typography key={index} className={classes.navBarItem}>
                   <Link className={classes.navBarLink} to={paths[index]}>
                     {page}
                   </Link>
