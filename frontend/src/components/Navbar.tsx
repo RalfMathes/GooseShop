@@ -96,7 +96,6 @@ const Navbar = () => {
                   </Link>
                 </Typography>
               ))}
-              <Tagbox />
               <Box className={classes.flexBoxRight} />
               <ShoppingCart />
             </>
