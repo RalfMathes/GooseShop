@@ -5,9 +5,11 @@ import {
   CardContent,
   CardMedia,
   Chip,
-  Grid,
+  Stack,
   Typography,
 } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import { makeStyles } from "tss-react/mui";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -55,9 +57,9 @@ const StoreItem = ({
   };
 
   return (
-    <Card>
+    <Card variant="elevation" className={classes.storeItemCard}>
       <Link to={`/item/${id}`}>
-        <CardMedia className={classes.itemCard} image={imgUrl} title={name} />
+        <CardMedia className={classes.cardMedia} image={imgUrl} title={name} />
       </Link>
       <CardContent>
         <Typography gutterBottom variant="h5">
@@ -70,27 +72,49 @@ const StoreItem = ({
       </CardContent>
       {noItemsAdded ? (
         <Box className={classes.flexBoxCenter}>
-          <Button onClick={handleIncreaseItem}>Add to Cart</Button>
+          <Button variant="contained" onClick={handleIncreaseItem}>
+            Add to Cart
+          </Button>
         </Box>
       ) : (
         <>
           <Box className={classes.flexBoxCenter}>
-            <Button onClick={handleDecreaseItem}>-</Button>
-            <Typography>{itemCount} in cart</Typography>
-            <Button onClick={handleIncreaseItem}>+</Button>
+            <Button
+              size="small"
+              variant="contained"
+              onClick={handleDecreaseItem}
+            >
+              <RemoveIcon />
+            </Button>
+            <Typography className={classes.cartCountText}>
+              {itemCount} in cart
+            </Typography>
+            <Button
+              size="small"
+              variant="contained"
+              onClick={handleIncreaseItem}
+            >
+              <AddIcon />
+            </Button>
           </Box>
-          <Box>
-            <Button onClick={handleRemoveItem}>Remove Item</Button>
+          <Box className={classes.flexBoxCenter}>
+            <Button size="small" variant="contained" onClick={handleRemoveItem}>
+              Remove Item
+            </Button>
           </Box>
         </>
       )}
-      <Grid container spacing={2}>
+      <Stack className={classes.tagStack} direction="row" spacing={2}>
         {tags.map((tag: string) => (
-          <Grid key={tag} item xs={6} sm={3}>
-            <Chip label={tag} onClick={(event) => onTagClick(event, tag)} />
-          </Grid>
+          <Chip
+            className={classes.tagChip}
+            color="primary"
+            size="small"
+            label={tag}
+            onClick={(event) => onTagClick(event, tag)}
+          />
         ))}
-      </Grid>
+      </Stack>
     </Card>
   );
 };
@@ -98,11 +122,27 @@ const StoreItem = ({
 export default StoreItem;
 
 const useStyles = makeStyles()(() => ({
+  cartCountText: {
+    marginLeft: 8,
+    marginRight: 8,
+  },
+  tagStack: {
+    flexWrap: "wrap",
+  },
+  storeItemCard: {
+    borderRadius: 10,
+  },
   flexBoxCenter: {
     display: "flex",
-    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 10,
   },
-  itemCard: {
+  cardMedia: {
     height: 140,
+    margin: 5,
+  },
+  tagChip: {
+    marginBottom: 5,
+    marginLeft: 5,
   },
 }));
