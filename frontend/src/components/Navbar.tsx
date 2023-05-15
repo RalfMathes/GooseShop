@@ -107,50 +107,50 @@ const Navbar = () => {
 export default Navbar;
 
 const useStyles = makeStyles()(() => ({
-  mobileBarGrid: {
-    justifyContent: "space-around",
-    alignItems: "center",
+  appBarDesktop: {
+    marginBottom: 8,
+    position: "sticky",
   },
   appBarMobile: {
     borderRadius: "15px",
-    position: "fixed",
-    top: "auto",
     bottom: 0,
     left: "2%",
-    width: "96%",
     marginBottom: "6px",
-  },
-  appBarDesktop: {
-    position: "sticky",
-    marginBottom: 8,
+    position: "fixed",
+    top: "auto",
+    width: "96%",
   },
   flexBoxRight: {
     flexGrow: 1,
   },
-  imageIcon: {
-    display: "flex",
-    height: "24px",
-    width: "24px",
-    filter: "invert(100%)",
-  },
   iconRoot: {
     textAlign: "center",
+  },
+  imageIcon: {
+    display: "flex",
+    filter: "invert(100%)",
+    height: "24px",
+    width: "24px",
+  },
+  mobileBarGrid: {
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+  navBarIcon: {
+    color: "white",
   },
   navBarItem: {
     marginRight: "16px",
   },
   navBarLink: {
+    color: "white",
     textDecoration: "none",
-    color: "white",
-  },
-  navBarIcon: {
-    color: "white",
   },
   navBarMenu: {
     marginTop: "-45px",
   },
   navMenuLink: {
-    textDecoration: "none",
     color: "black",
+    textDecoration: "none",
   },
 }));
