@@ -1,19 +1,16 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { makeStyles } from "tss-react/mui";
 import StoreCollection from "../components/StoreCollection";
+import useGetCollections from "../hooks/useGetCollections";
 import { fetchCollections } from "../redux/slices/collections/collections";
 import { setTitle } from "../redux/slices/title/title";
-import { AppDispatch, RootState } from "../redux/store";
-import { CollectionProps } from "../types/CollectionProps";
+import { AppDispatch } from "../redux/store";
 
 const Collections = () => {
   const { classes } = useStyles();
-  const collections: CollectionProps[] = useSelector<
-    RootState,
-    CollectionProps[]
-  >((state) => state.collectionsReducer.collections);
+  const collections = useGetCollections();
   const appDispatch = useDispatch<AppDispatch>();
   const dispatch = useDispatch();
 
