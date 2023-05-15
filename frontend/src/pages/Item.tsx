@@ -25,6 +25,10 @@ const Item = () => {
             name={""}
             price={0}
             imgUrl={""}
+            tags={[]}
+            onTagClick={() => {
+              console.log("Dummy funcion");
+            }}
             {...item}
           />
         </Grid>
