@@ -1,13 +1,10 @@
 import { Typography } from "@mui/material";
-import { useSelector } from "react-redux";
 import { makeStyles } from "tss-react/mui";
 import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
-import { RootState } from "../redux/store";
+import useGetTitle from "../hooks/useGetTitle";
 
 const MobileTopBar = () => {
-  const title: string = useSelector<RootState, string>(
-    (state) => state.titleReducer.name
-  );
+  const title = useGetTitle();
   const isMobileView = useGetBreakpointBool();
   const { classes } = useStyles();
   return isMobileView ? (
