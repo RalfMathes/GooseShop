@@ -6,4 +6,5 @@ export type StoreItemProps = {
   price: number;
   imgUrl: string;
   tags: string[];
+  onTagClick: (item: any, tag: string) => void;
 };
