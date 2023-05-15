@@ -11,31 +11,28 @@ import {
   Typography,
 } from "@mui/material";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { makeStyles } from "tss-react/mui";
+import useGetCartItem from "../hooks/useGetCartItem";
 import {
   decreaseItem,
   increaseItem,
   removeItem,
 } from "../redux/slices/shoppingCart/shoppingCart";
 import { fetchStoreItems } from "../redux/slices/storeItems/storeItems";
-import { AppDispatch, RootState } from "../redux/store";
+import { AppDispatch } from "../redux/store";
 import { CartItemProps } from "../types/CartItemProps";
-import { StoreItemProps } from "../types/StoreItemProps";
 import formatCurrency from "../utilities/formatCurrency";
 
 const CartItem = ({ id, quantity }: CartItemProps) => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
   const appDispatch = useDispatch<AppDispatch>();
-  const storeItems: StoreItemProps[] = useSelector<RootState, StoreItemProps[]>(
-    (state) => state.storeItemsReducer.items
-  );
+  const item = useGetCartItem(id);
 
   useEffect(() => {
     appDispatch(fetchStoreItems());
   }, []);
-  const item = storeItems.find((item) => item.id === id);
 
   if (item == null) return null;
 
