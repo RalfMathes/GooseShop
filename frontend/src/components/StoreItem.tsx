@@ -17,20 +17,8 @@ import {
 import formatCurrency from "../utilities/formatCurrency";
 import { RootState } from "../redux/store";
 import { Link } from "react-router-dom";
-
-type StoreItemProps = {
-  id: number;
-  categoryId: number;
-  collectionId: number;
-  name: string;
-  price: number;
-  imgUrl: string;
-};
-
-type CartItemProps = {
-  id: number;
-  quantity: number;
-};
+import { StoreItemProps } from "../types/StoreItemProps";
+import { CartItemProps } from "../types/CartItemProps";
 
 const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
   const itemCount = useSelector<RootState, number>(

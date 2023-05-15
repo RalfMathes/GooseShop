@@ -1,10 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
-
-type CartItemProps = {
-  id: number;
-  quantity: number;
-};
+import { CartItemProps } from "../../../types/CartItemProps";
 export interface ShoppingCartState {
   count: number;
   items: CartItemProps[];

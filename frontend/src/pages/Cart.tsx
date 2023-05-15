@@ -4,11 +4,7 @@ import { RootState } from "../redux/store";
 import { makeStyles } from "tss-react/mui";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import CartItem from "../components/CartItem";
-
-type CartItemProps = {
-  id: number;
-  quantity: number;
-};
+import { CartItemProps } from "../types/CartItemProps";
 
 const Cart = () => {
   const { classes } = useStyles();

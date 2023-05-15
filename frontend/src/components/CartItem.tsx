@@ -20,11 +20,7 @@ import {
 import { useEffect } from "react";
 import { fetchStoreItems } from "../redux/slices/storeItems/storeItems";
 import { StoreItemProps } from "../types/StoreItemProps";
-
-type CartItemProps = {
-  id: number;
-  quantity: number;
-};
+import { CartItemProps } from "../types/CartItemProps";
 
 const CartItem = ({ id, quantity }: CartItemProps) => {
   const { classes } = useStyles();
