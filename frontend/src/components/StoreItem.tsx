@@ -10,17 +10,16 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { makeStyles } from "tss-react/mui";
 
 import { Link } from "react-router-dom";
+import useGetItemCount from "../hooks/useGetItemCount";
 import {
   decreaseItem,
   increaseItem,
   removeItem,
 } from "../redux/slices/shoppingCart/shoppingCart";
-import { RootState } from "../redux/store";
-import { CartItemProps } from "../types/CartItemProps";
 import { StoreItemProps } from "../types/StoreItemProps";
 import formatCurrency from "../utilities/formatCurrency";
 
@@ -32,12 +31,7 @@ const StoreItem = ({
   tags,
   onTagClick,
 }: StoreItemProps) => {
-  const itemCount = useSelector<RootState, number>(
-    (state) =>
-      state.shoppingCartReducer.items.find(
-        (item: CartItemProps) => item.id == id
-      )?.quantity || 0
-  );
+  const itemCount = useGetItemCount(id);
 
   const { classes } = useStyles();
   const dispatch = useDispatch();
