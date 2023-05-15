@@ -8,6 +8,7 @@ const itemsJson = [
     name: "knife",
     price: 15.99,
     imgUrl: "/static/goose.svg",
+    tags: ["knife", "goose"],
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const itemsJson = [
     name: "goose plush",
     price: 17.99,
     imgUrl: "/static/goose.svg",
+    tags: ["plush", "goose"],
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ const itemsJson = [
     name: "goose energy drink",
     price: 3,
     imgUrl: "/static/goose.svg",
+    tags: ["energy drink", "goose"],
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ const itemsJson = [
     name: "goose turbo",
     price: 115.99,
     imgUrl: "/static/goose.svg",
+    tags: ["engine supply", "goose"],
   },
   {
     id: 5,
@@ -40,6 +44,7 @@ const itemsJson = [
     name: "mechanical keyboard",
     price: 220.99,
     imgUrl: "/static/keyboard.jpeg",
+    tags: ["mechanical keyboard"],
   },
   {
     id: 6,
@@ -48,6 +53,7 @@ const itemsJson = [
     name: "keyboard switches",
     price: 6.99,
     imgUrl: "/static/switches.webp",
+    tags: ["mechanical keyboard", "mechanical keyboard supply"],
   },
   {
     id: 7,
@@ -56,6 +62,7 @@ const itemsJson = [
     name: "keycaps",
     price: 12.99,
     imgUrl: "/static/keycaps.webp",
+    tags: ["mechanical keyboard", "mechanical keyboard supply"],
   },
 ];
 
