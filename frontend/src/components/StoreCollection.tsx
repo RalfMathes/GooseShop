@@ -1,23 +1,24 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import { Link } from "react-router-dom";
 import { CollectionProps } from "../types/CollectionProps";
+import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
 
 const StoreCollection = ({ id, name, imgUrl }: CollectionProps) => {
   const { classes } = useStyles();
+  const isMobileView = useGetBreakpointBool();
 
   return (
     <Link className={classes.navMenuLink} to={`/collection/${id}`}>
-      <Card>
+      <Card
+        className={
+          isMobileView
+            ? classes.collectionCardMobile
+            : classes.collectionCardDesktop
+        }
+      >
         <CardMedia
-          className={classes.collectionCard}
+          className={classes.collectionCardMedia}
           image={imgUrl}
           title={name}
         />
@@ -39,6 +40,12 @@ const StoreCollection = ({ id, name, imgUrl }: CollectionProps) => {
 export default StoreCollection;
 
 const useStyles = makeStyles()(() => ({
+  collectionCardMobile: {
+    width: 200,
+  },
+  collectionCardDesktop: {
+    width: 400,
+  },
   contentTitle: {
     display: "flex",
     justifyContent: "center",
@@ -47,7 +54,7 @@ const useStyles = makeStyles()(() => ({
     display: "flex",
     alignItems: "center",
   },
-  collectionCard: {
+  collectionCardMedia: {
     height: 140,
   },
   navMenuLink: {
