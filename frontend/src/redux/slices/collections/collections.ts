@@ -51,5 +51,5 @@ const collectionsSlice = createSlice({
 
 export default collectionsSlice.reducer;
 export const selectCollections = (state: RootState) =>
-  state.collections.collections;
+  state.collectionsReducer.collections;
 export { fetchCollections };
