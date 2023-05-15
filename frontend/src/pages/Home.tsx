@@ -15,12 +15,7 @@ import { fetchCategories } from "../redux/slices/categories/categories";
 import { fetchCollections } from "../redux/slices/collections/collections";
 import StoreCategory from "../components/StoreCategory";
 import StoreCollection from "../components/StoreCollection";
-
-type CategoryProps = {
-  id: number;
-  name: string;
-  imgUrl: string;
-};
+import { CategoryProps } from "../types/CategoryProps";
 
 type CollectionProps = {
   id: number;

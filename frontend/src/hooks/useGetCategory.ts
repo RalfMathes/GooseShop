@@ -2,12 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { useEffect } from "react";
 import { fetchCategories } from "../redux/slices/categories/categories";
-
-type CategoryProps = {
-  id: number;
-  name: string;
-  imgUrl: string;
-};
+import { CategoryProps } from "../types/CategoryProps";
 
 const useGetCategory = (filterId: number) => {
   const appDispatch = useDispatch<AppDispatch>();

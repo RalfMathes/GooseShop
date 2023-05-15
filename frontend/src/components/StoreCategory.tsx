@@ -8,14 +8,9 @@ import {
 } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import { Link } from "react-router-dom";
+import { CategoryProps } from "../types/CategoryProps";
 
-type CategoriesProps = {
-  id: number;
-  name: string;
-  imgUrl: string;
-};
-
-const StoreCategory = ({ id, name, imgUrl }: CategoriesProps) => {
+const StoreCategory = ({ id, name, imgUrl }: CategoryProps) => {
   const { classes } = useStyles();
 
   return (

@@ -5,19 +5,13 @@ import { fetchCategories } from "../redux/slices/categories/categories";
 import { AppDispatch, RootState } from "../redux/store";
 import { makeStyles } from "tss-react/mui";
 import StoreCategory from "../components/StoreCategory";
-
-type CategoriesProps = {
-  id: number;
-  name: string;
-  imgUrl: string;
-};
+import { CategoryProps } from "../types/CategoryProps";
 
 const Categories = () => {
   const { classes } = useStyles();
-  const categories: CategoriesProps[] = useSelector<
-    RootState,
-    CategoriesProps[]
-  >((state) => state.categoriesReducer.categories);
+  const categories: CategoryProps[] = useSelector<RootState, CategoryProps[]>(
+    (state) => state.categoriesReducer.categories
+  );
   const appDispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {

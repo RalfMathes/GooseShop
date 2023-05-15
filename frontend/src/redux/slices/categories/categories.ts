@@ -1,15 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
 import axios from "axios";
-
-type CategoriesProps = {
-  id: number;
-  name: string;
-  imgUrl: string;
-};
+import { CategoryProps } from "../../../types/CategoryProps";
 export interface CategoriesState {
   loading: boolean;
-  categories: CategoriesProps[];
+  categories: CategoryProps[];
   error: string;
 }
 
@@ -19,7 +14,7 @@ const initialState: CategoriesState = {
   error: "",
 };
 
-const fetchCategories = createAsyncThunk<CategoriesProps[]>(
+const fetchCategories = createAsyncThunk<CategoryProps[]>(
   "categories/fetchCategories",
   async () => {
     const response = await axios.get("http://localhost:3000/categories");
