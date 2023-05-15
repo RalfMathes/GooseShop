@@ -12,6 +12,7 @@ import Category from "./pages/Category";
 import Collection from "./pages/Collection";
 import MobileSpacer from "./components/MobileSpacer";
 import theme from "./theme";
+import MobileTopBar from "./components/MobileTopBar";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Navbar />
+        <MobileTopBar />
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
