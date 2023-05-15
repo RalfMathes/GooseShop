@@ -36,35 +36,33 @@ const Home = () => {
 
   return (
     <>
+      {/* <DesktopSpacer /> */}
       <Box className={classes.titleBoxMobile}>
         <Typography variant="h3">Home</Typography>
       </Box>
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
+      <div>
+        <div>
           <Typography variant="h4" className={classes.contentTitle}>
             Categories
           </Typography>
-          <Stack>
+          <div className={classes.scrollGrid}>
             {categories.map((category) => (
-              <Box key={category.id}>
-                <StoreCategory {...category} />
-              </Box>
+              <StoreCategory key={category.id} {...category} />
             ))}
-          </Stack>
-        </Grid>
-        <Grid item xs={6}>
+          </div>
+        </div>
+        <div>
           <Typography variant="h4" className={classes.contentTitle}>
             Collections
           </Typography>
-          <Stack>
+          <div className={classes.scrollGrid}>
             {collections.map((collection) => (
-              <Box key={collection.id}>
-                <StoreCollection {...collection} />
-              </Box>
+              <StoreCollection key={collection.id} {...collection} />
             ))}
-          </Stack>
-        </Grid>
-      </Grid>
+          </div>
+        </div>
+      </div>
+      {/* <MobileSpacer /> */}
     </>
   );
 };
@@ -72,6 +70,14 @@ const Home = () => {
 export default Home;
 
 const useStyles = makeStyles()(() => ({
+  scrollGrid: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 20,
+    overflowX: "auto",
+    overflowY: "hidden",
+    whiteSpace: "nowrap",
+  },
   contentTitle: {
     display: "flex",
     justifyContent: "center",
