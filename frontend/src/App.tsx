@@ -10,6 +10,7 @@ import { CssBaseline, createTheme } from "@mui/material";
 import { ThemeProvider } from "@mui/material";
 import Category from "./pages/Category";
 import Collection from "./pages/Collection";
+import MobileSpacer from "./components/MobileSpacer";
 
 const theme = createTheme({
   palette: {
@@ -41,6 +42,7 @@ const App = () => {
             <Route path="/item/:itemId" element={<Item />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
+          <MobileSpacer />
         </Container>
       </ThemeProvider>
     </>
