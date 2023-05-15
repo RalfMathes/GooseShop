@@ -4,6 +4,8 @@ import {
   Card,
   CardContent,
   CardMedia,
+  Chip,
+  Grid,
   Typography,
 } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
@@ -20,7 +22,14 @@ import { Link } from "react-router-dom";
 import { StoreItemProps } from "../types/StoreItemProps";
 import { CartItemProps } from "../types/CartItemProps";
 
-const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
+const StoreItem = ({
+  id,
+  name,
+  price,
+  imgUrl,
+  tags,
+  onTagClick,
+}: StoreItemProps) => {
   const itemCount = useSelector<RootState, number>(
     (state) =>
       state.shoppingCartReducer.items.find(
@@ -75,6 +84,13 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
           </Box>
         </>
       )}
+      <Grid container spacing={2}>
+        {tags.map((tag: string) => (
+          <Grid key={tag} item xs={6} sm={3}>
+            <Chip label={tag} onClick={(event) => onTagClick(event, tag)} />
+          </Grid>
+        ))}
+      </Grid>
     </Card>
   );
 };
