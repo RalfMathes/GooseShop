@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom";
 import useGetCategory from "../hooks/useGetCategory";
 import { StoreItemProps } from "../types/StoreItemProps";
 import { useEffect, useState } from "react";
+import { setTitle } from "../redux/slices/title/title";
+import { useDispatch } from "react-redux";
 
 const Category = () => {
   const { categoryId } = useParams();
@@ -17,6 +19,11 @@ const Category = () => {
   const [visibleItems, setVisibleItems] =
     useState<StoreItemProps[]>(filteredItems);
   const [activeTag, setActiveTag] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setTitle("Category: " + category?.name));
+  }, []);
 
   useEffect(() => {
     if (activeTag !== "") {
@@ -32,9 +39,6 @@ const Category = () => {
 
   return (
     <>
-      <Box className={classes.titleBoxMobile}>
-        <Typography variant="h3">{category?.name}</Typography>
-      </Box>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {visibleItems.map((item) => (
           <Grid key={item.id} item xs={12} sm={6}>
@@ -57,10 +61,4 @@ const Category = () => {
 
 export default Category;
 
-const useStyles = makeStyles()(() => ({
-  titleBoxMobile: {
-    display: "flex",
-    justifyContent: "center",
-    backgroundColor: "primary.bright",
-  },
-}));
+const useStyles = makeStyles()(() => ({}));
