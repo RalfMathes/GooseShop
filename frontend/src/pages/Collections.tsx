@@ -6,6 +6,7 @@ import { AppDispatch, RootState } from "../redux/store";
 import { makeStyles } from "tss-react/mui";
 import StoreCollection from "../components/StoreCollection";
 import { CollectionProps } from "../types/CollectionProps";
+import { setTitle } from "../redux/slices/title/title";
 
 const Collections = () => {
   const { classes } = useStyles();
@@ -14,9 +15,11 @@ const Collections = () => {
     CollectionProps[]
   >((state) => state.collectionsReducer.collections);
   const appDispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     appDispatch(fetchCollections());
+    dispatch(setTitle("Collections"));
   }, []);
   return (
     <>
