@@ -6,6 +6,7 @@ import { AppDispatch, RootState } from "../redux/store";
 import { makeStyles } from "tss-react/mui";
 import StoreCategory from "../components/StoreCategory";
 import { CategoryProps } from "../types/CategoryProps";
+import { setTitle } from "../redux/slices/title/title";
 
 const Categories = () => {
   const { classes } = useStyles();
@@ -13,9 +14,11 @@ const Categories = () => {
     (state) => state.categoriesReducer.categories
   );
   const appDispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     appDispatch(fetchCategories());
+    dispatch(setTitle("Categories"));
   }, []);
   return (
     <>
