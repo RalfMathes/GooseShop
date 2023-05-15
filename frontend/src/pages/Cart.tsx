@@ -1,8 +1,7 @@
-import { Box, Grid, Typography, useTheme } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { makeStyles } from "tss-react/mui";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import CartItem from "../components/CartItem";
 import { CartItemProps } from "../types/CartItemProps";
 
@@ -11,12 +10,11 @@ const Cart = () => {
   const items = useSelector<RootState, CartItemProps[]>(
     (state) => state.shoppingCartReducer.items
   );
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobileView = useGetBreakpointBool();
 
   return (
     <>
-      {matches ? (
+      {isMobileView ? (
         <Box className={classes.titleBoxMobile}>
           <Typography variant="h3">Cart</Typography>
         </Box>
