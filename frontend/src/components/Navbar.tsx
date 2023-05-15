@@ -5,7 +5,6 @@ import {
   IconButton,
   Menu,
   MenuItem,
-  Stack,
   Toolbar,
   Tooltip,
   Typography,
@@ -16,7 +15,6 @@ import { Link } from "react-router-dom";
 import * as React from "react";
 import ShoppingCart from "./ShoppingCart";
 import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
-import Tagbox from "./Tagbox";
 
 const pages = ["Collections", "Categories"];
 const paths = ["/collection", "/category"];
@@ -124,6 +122,7 @@ const useStyles = makeStyles()(() => ({
   },
   appBarDesktop: {
     position: "sticky",
+    marginBottom: 8,
   },
   flexBoxRight: {
     flexGrow: 1,
