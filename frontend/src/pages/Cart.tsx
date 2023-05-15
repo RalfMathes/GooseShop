@@ -1,10 +1,12 @@
 import { Box, Grid, Typography } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { makeStyles } from "tss-react/mui";
 import CartItem from "../components/CartItem";
 import { CartItemProps } from "../types/CartItemProps";
 import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
+import { useEffect } from "react";
+import { setTitle } from "../redux/slices/title/title";
 
 const Cart = () => {
   const { classes } = useStyles();
@@ -13,15 +15,14 @@ const Cart = () => {
   );
   const isMobileView = useGetBreakpointBool();
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setTitle("Cart"));
+  }, []);
+
   return (
     <>
-      {isMobileView ? (
-        <Box className={classes.titleBoxMobile}>
-          <Typography variant="h3">Cart</Typography>
-        </Box>
-      ) : (
-        <Typography variant="h3">Cart</Typography>
-      )}
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {items.map((item) => (
           <Grid key={item.id} item xs={12} sm={12}>
@@ -35,10 +36,4 @@ const Cart = () => {
 
 export default Cart;
 
-const useStyles = makeStyles()(() => ({
-  titleBoxMobile: {
-    display: "flex",
-    justifyContent: "center",
-    backgroundColor: "primary.bright",
-  },
-}));
+const useStyles = makeStyles()(() => ({}));
