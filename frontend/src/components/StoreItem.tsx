@@ -99,8 +99,9 @@ const StoreItem = ({
         </>
       )}
       <Stack className={classes.tagStack} direction="row" spacing={2}>
-        {tags.map((tag: string) => (
+        {tags.map((tag: string, index: number) => (
           <Chip
+            key={index}
             className={classes.tagChip}
             color="primary"
             size="small"
