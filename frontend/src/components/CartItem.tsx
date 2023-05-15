@@ -8,6 +8,8 @@ import {
   Typography,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import formatCurrency from "../utilities/formatCurrency";
 import { makeStyles } from "tss-react/mui";
 import { useDispatch, useSelector } from "react-redux";
@@ -66,9 +68,13 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
           </Typography>
         </CardContent>
         <Box className={classes.columnBox}>
-          <Button onClick={handleIncreaseItem}>+</Button>
-          <Button onClick={handleDecreaseItem}>-</Button>
-          <Button onClick={handleRemoveItem}>
+          <Button variant="contained" onClick={handleIncreaseItem}>
+            <AddIcon />
+          </Button>
+          <Button variant="contained" onClick={handleDecreaseItem}>
+            <RemoveIcon />
+          </Button>
+          <Button variant="contained" onClick={handleRemoveItem}>
             <DeleteIcon />
           </Button>
         </Box>
@@ -89,9 +95,11 @@ const useStyles = makeStyles()(() => ({
     flexDirection: "column",
     alignItems: "end",
     justifyContent: "space-evenly",
+    marginRight: 8,
   },
   itemCard: {
     height: 140,
     width: 140,
+    margin: 8,
   },
 }));
