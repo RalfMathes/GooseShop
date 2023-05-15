@@ -1,15 +1,12 @@
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Badge, IconButton } from "@mui/material";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { makeStyles } from "tss-react/mui";
-import { RootState } from "../redux/store";
+import useGetShoppingCartCount from "../hooks/useGetShoppingCartCount";
 
 const ShoppingCart = () => {
   const { classes } = useStyles();
-  const shoppingCartCount = useSelector<RootState, number>(
-    (state) => state.shoppingCartReducer.count
-  );
+  const shoppingCartCount = useGetShoppingCartCount();
 
   return (
     <IconButton>
