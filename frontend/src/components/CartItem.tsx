@@ -24,7 +24,7 @@ import { AppDispatch } from "../redux/store";
 import { CartItemProps } from "../types/CartItemProps";
 import formatCurrency from "../utilities/formatCurrency";
 
-const CartItem = ({ id, quantity }: CartItemProps) => {
+const CartItem = ({ id, quantity, price }: CartItemProps) => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
   const appDispatch = useDispatch<AppDispatch>();
@@ -37,7 +37,7 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
   if (item == null) return null;
 
   const handleIncreaseItem = () => {
-    dispatch(increaseItem(id));
+    dispatch(increaseItem([id, price]));
   };
 
   const handleDecreaseItem = () => {
