@@ -124,7 +124,6 @@ const useStyles = makeStyles()(() => ({
   },
   cardMedia: {
     height: 140,
-    margin: 5,
   },
   flexBoxCenter: {
     display: "flex",
@@ -133,10 +132,11 @@ const useStyles = makeStyles()(() => ({
   },
   storeItemCard: {
     borderRadius: 10,
+    boxShadow: "0 1px 2px rgba(0,0,0, .15)",
   },
   tagChip: {
-    marginBottom: 5,
-    marginLeft: 5,
+    marginBottom: 10,
+    marginLeft: 10,
   },
   tagStack: {
     flexWrap: "wrap",
