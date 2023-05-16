@@ -20,32 +20,22 @@ const Item = () => {
   }, []);
 
   return (
-    <Container className={classes.itemContainer}>
-      <img className={classes.itemImage} src={item?.imgUrl}></img>
-      <Typography className={classes.itemTitle} variant="h3">
-        {capitaliseWord(item?.name ?? "")}
-      </Typography>
-      <Typography className={classes.priceTag}>
-        {formatCurrency(item?.price ?? 0)}
-      </Typography>
-      {/* <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid key={item?.id} item xs={12} sm={6}>
-          <StoreItem
-            id={0}
-            categoryId={0}
-            collectionId={0}
-            name={""}
-            price={0}
-            imgUrl={""}
-            tags={[]}
-            onTagClick={() => {
-              console.log("Dummy funcion");
-            }}
-            {...item}
-          />
-        </Grid>
-      </Grid> */}
-    </Container>
+    <>
+      <Container className={classes.itemContainer}>
+        <img className={classes.itemImage} src={item?.imgUrl}></img>
+        <Typography className={classes.itemTitle} variant="h3">
+          {capitaliseWord(item?.name ?? "")}
+        </Typography>
+        <Typography className={classes.priceTag} variant="h5">
+          {formatCurrency(item?.price ?? 0)}
+        </Typography>
+      </Container>
+      <div className={classes.textColoDiv}>
+        <Container>
+          <Typography variant="body1">{item?.description}</Typography>
+        </Container>
+      </div>
+    </>
   );
 };
 
@@ -71,5 +61,12 @@ const useStyles = makeStyles()(() => ({
   },
   priceTag: {
     textAlign: "start",
+  },
+  totalText: {
+    padding: "20px 20px 20px 0",
+    textAlign: "end",
+  },
+  textColoDiv: {
+    backgroundColor: "rgba(251, 139, 23, 0.4)",
   },
 }));
