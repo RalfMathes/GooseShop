@@ -21,7 +21,7 @@ export default MobileTopBar;
 const useStyles = makeStyles()(() => ({
   mobileTopBar: {
     alignItems: "center",
-    backgroundColor: "rgba(251, 139, 23, .70)",
+    backgroundColor: "rgba(251, 139, 23, .85)",
     border: "solid",
     borderColor: "#fb8b17",
     borderRadius: "15px",
