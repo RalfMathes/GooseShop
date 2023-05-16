@@ -40,7 +40,7 @@ const StoreItem = ({
   const noItemsAdded = itemCount === 0;
 
   const handleIncreaseItem = () => {
-    dispatch(increaseItem(id));
+    dispatch(increaseItem([id, price]));
   };
 
   const handleDecreaseItem = () => {
