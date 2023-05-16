@@ -49,7 +49,7 @@ const CartItem = ({ id, quantity, price }: CartItemProps) => {
   };
 
   return (
-    <Grid item xs={12}>
+    <Grid className={classes.cardGrid} item xs={12}>
       <Card className={classes.flexCard}>
         <CardMedia
           className={classes.itemCard}
@@ -83,6 +83,9 @@ const CartItem = ({ id, quantity, price }: CartItemProps) => {
 export default CartItem;
 
 const useStyles = makeStyles()(() => ({
+  cardGrid: {
+    paddingBottom: 10,
+  },
   columnBox: {
     alignItems: "end",
     display: "flex",
@@ -93,6 +96,7 @@ const useStyles = makeStyles()(() => ({
   },
   flexCard: {
     display: "flex",
+    boxShadow: "0 1px 2px rgba(0,0,0, .15)",
   },
   itemCard: {
     height: 140,
