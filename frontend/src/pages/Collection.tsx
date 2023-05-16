@@ -49,6 +49,7 @@ const Collection = () => {
               categoryId={item.categoryId}
               collectionId={item.collectionId}
               name={item.name}
+              description={item.description}
               price={item.price}
               imgUrl={item.imgUrl}
               tags={item.tags}

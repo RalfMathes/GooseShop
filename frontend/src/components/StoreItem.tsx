@@ -26,6 +26,7 @@ import formatCurrency from "../utilities/formatCurrency";
 const StoreItem = ({
   id,
   name,
+  description,
   price,
   imgUrl,
   tags,
