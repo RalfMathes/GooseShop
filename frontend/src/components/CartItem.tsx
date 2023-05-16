@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { makeStyles } from "tss-react/mui";
 import useGetCartItem from "../hooks/useGetCartItem";
 import {
@@ -51,11 +52,13 @@ const CartItem = ({ id, quantity, price }: CartItemProps) => {
   return (
     <Grid className={classes.cardGrid} item xs={12}>
       <Card className={classes.flexCard}>
-        <CardMedia
-          className={classes.itemCard}
-          image={item.imgUrl}
-          title={item.name}
-        />
+        <Link to={`/item/${id}`}>
+          <CardMedia
+            className={classes.itemCard}
+            image={item.imgUrl}
+            title={item.name}
+          />
+        </Link>
         <CardContent>
           <Typography gutterBottom variant="body1">
             {item.name} x{quantity}
