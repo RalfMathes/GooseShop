@@ -9,13 +9,13 @@ const ShoppingCart = () => {
   const shoppingCartCount = useGetShoppingCartCount();
 
   return (
-    <IconButton className={classes.borderButton}>
-      <Link className={classes.shoppingCartLink} to="/cart">
-        <Badge badgeContent={shoppingCartCount} color="error">
+    <Link className={classes.shoppingCartLink} to="/cart">
+      <IconButton className={classes.borderButton}>
+        <Badge badgeContent={shoppingCartCount} color="secondary">
           <ShoppingCartIcon />
         </Badge>
-      </Link>
-    </IconButton>
+      </IconButton>
+    </Link>
   );
 };
 
@@ -23,13 +23,16 @@ export default ShoppingCart;
 
 const useStyles = makeStyles()(() => ({
   borderButton: {
-    backgroundColor: "rgba(251, 139, 23, .40)",
+    ":hover": {
+      color: "#fb8b17",
+    },
+    backgroundColor: "rgba(251, 139, 23, 1)",
+    color: "white",
     border: "solid",
     borderColor: "#fb8b17",
     borderWidth: 1,
   },
   shoppingCartLink: {
-    color: "white",
     textDecoration: "none",
   },
 }));
