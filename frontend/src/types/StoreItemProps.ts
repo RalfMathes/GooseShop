@@ -3,6 +3,7 @@ export type StoreItemProps = {
   categoryId: number;
   collectionId: number;
   name: string;
+  description: string;
   price: number;
   imgUrl: string;
   tags: string[];
