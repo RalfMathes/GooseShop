@@ -4,22 +4,31 @@ import type { RootState } from "../../store";
 export interface ShoppingCartState {
   count: number;
   items: CartItemProps[];
+  total: number;
 }
 
 const initialState: ShoppingCartState = {
   count: 0,
   items: [],
+  total: 0,
 };
 
 const shoppingCartSlice = createSlice({
   name: "shoppingCart",
   initialState: initialState,
   reducers: {
+    setTotal: (state) => {
+      state.total = state.items.reduce(
+        (sum, current) => sum + current.price * current.quantity,
+        0
+      );
+    },
     increaseItem: (state, action) => {
-      const targetId = action.payload;
+      const targetId = action.payload[0];
+      const targetPrice = action.payload[1];
 
       if (state.items.find((item) => item.id === targetId) == null) {
-        state.items.push({ id: targetId, quantity: 1 });
+        state.items.push({ id: targetId, quantity: 1, price: targetPrice });
       } else {
         state.items.map((item) => {
           if (item.id === targetId) {
@@ -63,5 +72,7 @@ const shoppingCartSlice = createSlice({
 export default shoppingCartSlice.reducer;
 export const selectShoppingCartCount = (state: RootState) =>
   state.shoppingCartReducer.count;
-export const { increaseItem, decreaseItem, removeItem } =
+export const selectShoppingCartTotal = (state: RootState) =>
+  state.shoppingCartReducer.total;
+export const { setTotal, increaseItem, decreaseItem, removeItem } =
   shoppingCartSlice.actions;
