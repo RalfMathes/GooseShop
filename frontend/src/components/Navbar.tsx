@@ -45,11 +45,11 @@ const Navbar = () => {
           justifyContent="space-around"
           alignItems="center"
         >
-          <IconButton className={classes.iconRoot}>
-            <Link className={classes.navBarLink} to="/">
+          <Link className={classes.navBarLink} to="/">
+            <IconButton className={classes.iconRoot}>
               <img className={classes.imageIcon} src="/static/goose.svg" />
-            </Link>
-          </IconButton>
+            </IconButton>
+          </Link>
           {isMobileView ? (
             <>
               <ShoppingCart />
@@ -58,7 +58,7 @@ const Navbar = () => {
                   className={classes.borderButton}
                   onClick={handleOpenUserMenu}
                 >
-                  <MenuIcon className={classes.navBarIcon} />
+                  <MenuIcon />
                 </IconButton>
               </Tooltip>
               <Menu
@@ -78,26 +78,30 @@ const Navbar = () => {
                 onClose={handleCloseUserMenu}
               >
                 {pages.map((page, index) => (
-                  <MenuItem key={index}>
-                    <Typography textAlign="center">
-                      <Link className={classes.navMenuLink} to={paths[index]}>
-                        {page}
-                      </Link>
-                    </Typography>
-                  </MenuItem>
+                  <Link
+                    key={index}
+                    className={classes.navMenuLink}
+                    to={paths[index]}
+                  >
+                    <MenuItem>
+                      <Typography textAlign="center">{page}</Typography>
+                    </MenuItem>
+                  </Link>
                 ))}
               </Menu>
             </>
           ) : (
             <>
-              {pages.map((page, index) => (
-                <Typography key={index} className={classes.navBarItem}>
-                  <Link className={classes.navBarLink} to={paths[index]}>
-                    {page}
-                  </Link>
-                </Typography>
-              ))}
               <Box className={classes.flexBoxRight} />
+              {pages.map((page, index) => (
+                <Link
+                  key={index}
+                  className={classes.navBarLink}
+                  to={paths[index]}
+                >
+                  <Typography className={classes.navBarItem}>{page}</Typography>
+                </Link>
+              ))}
               <ShoppingCart />
             </>
           )}
@@ -111,21 +115,21 @@ export default Navbar;
 
 const useStyles = makeStyles()(() => ({
   appBarDesktop: {
-    backgroundColor: "rgba(251, 139, 23, .75)",
+    backgroundColor: "rgba(255, 243, 231, .75)",
     backdropFilter: "blur(4px)",
     borderBottom: "solid",
-    borderColor: "#fb8b17",
-    borderWidth: 2,
-    marginBottom: 8,
+    borderColor: "#e7dbd0",
+    borderWidth: 1,
+    boxShadow: "0 1px 2px rgba(0,0,0, .15)",
     position: "sticky",
   },
   appBarMobile: {
-    backgroundColor: "rgba(251, 139, 23, .70)",
+    backgroundColor: "rgba(255, 247, 238, .85)",
     backdropFilter: "blur(4px)",
-    border: "solid",
-    borderColor: "#fb8b17",
+    // border: "solid",
+    // borderColor: "#fb8b17",
     borderRadius: "15px",
-    borderWidth: 2,
+    // borderWidth: 2,
     bottom: 0,
     left: "2%",
     marginBottom: "6px",
@@ -134,24 +138,32 @@ const useStyles = makeStyles()(() => ({
     width: "96%",
   },
   borderButton: {
-    backgroundColor: "rgba(251, 139, 23, .40)",
+    ":hover": {
+      color: "rgba(251, 139, 23, 1)",
+    },
+    backgroundColor: "rgba(251, 139, 23, 1)",
     border: "solid",
     borderColor: "#fb8b17",
     borderWidth: 1,
+    color: "white",
   },
   flexBoxRight: {
     flexGrow: 1,
   },
   iconRoot: {
-    backgroundColor: "rgba(251, 139, 23, .40)",
+    ":hover": {
+      filter:
+        "invert(53%) sepia(88%) saturate(925%) hue-rotate(350deg) brightness(102%) contrast(97%)",
+    },
+    backgroundColor: "#0474e8",
     border: "solid",
-    borderColor: "#fb8b17",
+    borderColor: "#0474e8",
     borderWidth: 1,
+    filter: "invert(100%)",
     textAlign: "center",
   },
   imageIcon: {
     display: "flex",
-    filter: "invert(100%)",
     height: "24px",
     width: "24px",
   },
@@ -159,14 +171,11 @@ const useStyles = makeStyles()(() => ({
     alignItems: "center",
     justifyContent: "space-around",
   },
-  navBarIcon: {
-    color: "white",
-  },
   navBarItem: {
     marginRight: "16px",
   },
   navBarLink: {
-    color: "white",
+    color: "black",
     textDecoration: "none",
   },
   navBarMenu: {
