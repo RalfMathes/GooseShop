@@ -84,7 +84,7 @@ const categoriesJson = [
     id: 2,
     name: "goose",
     description: "Goose related products. Everything that makes your goose happy, from goose plushies to knives (Don't give your goose a knife).",
-    imgUrl: "/static/geese.webp",
+    imgUrl: "/static/goose.jpeg",
   },
   {
     id: 3,
