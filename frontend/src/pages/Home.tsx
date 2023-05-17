@@ -37,31 +37,25 @@ const Home = () => {
       <Container>
         <Grid className={classes.iconGrid} container spacing={2}>
           <Grid className={classes.iconGridItem} item xs={6} sm={3}>
-            <LocalShippingIcon
-              className={classes.spacedIcon}
-              fontSize="large"
-            />
+            <LocalShippingIcon className={classes.spacedIcon} />
             <Typography className={classes.iconCaption} variant="body2">
               Fast and reliable delivery
             </Typography>
           </Grid>
           <Grid className={classes.iconGridItem} item xs={6} sm={3}>
-            <ThumbUpIcon className={classes.spacedIcon} fontSize="large" />
+            <ThumbUpIcon className={classes.spacedIcon} />
             <Typography className={classes.iconCaption} variant="body2">
               Approved by geese around the world
             </Typography>
           </Grid>
           <Grid className={classes.iconGridItem} item xs={6} sm={3}>
-            <ContactSupportIcon
-              className={classes.spacedIcon}
-              fontSize="large"
-            />
+            <ContactSupportIcon className={classes.spacedIcon} />
             <Typography className={classes.iconCaption} variant="body2">
               Friendly and fast support
             </Typography>
           </Grid>
           <Grid className={classes.iconGridItem} item xs={6} sm={3}>
-            <FavoriteIcon className={classes.spacedIcon} fontSize="large" />
+            <FavoriteIcon className={classes.spacedIcon} />
             <Typography className={classes.iconCaption} variant="body2">
               High quality products
             </Typography>
@@ -159,5 +153,6 @@ const useStyles = makeStyles()((theme) => ({
   },
   spacedIcon: {
     marginBottom: 20,
+    fontSize: 40,
   },
 }));
