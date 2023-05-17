@@ -2,8 +2,6 @@
 
 A little shop for geese and non-geese
 
----
-
 ## Welcome to the goose shop
 
 This project is an example for a React WebApp store with Redux / Redux- Toolkit for state management, Axios for Http requests and Material UI.
