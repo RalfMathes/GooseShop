@@ -62,7 +62,7 @@ const Home = () => {
           </Grid>
         </Grid>
       </Container>
-      <div className={classes.categoriesRoot}>
+      <div id="categories" className={classes.categoriesRoot}>
         <Typography variant="h4" className={classes.categoryTitle}>
           Categories
         </Typography>
@@ -72,7 +72,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <div className={classes.collectionsRoot}>
+      <div id="collections" className={classes.collectionsRoot}>
         <Typography variant="h4" className={classes.collectionTitle}>
           Collections
         </Typography>
