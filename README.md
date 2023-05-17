@@ -1,6 +1,6 @@
 # GooseShop
 
-![Goose](./goose_logo.png)
+![Goose](./goose_logo_small.png)
 
 A little shop for geese and non-geese
 
