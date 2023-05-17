@@ -16,8 +16,7 @@ import { makeStyles } from "tss-react/mui";
 import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
 import ShoppingCart from "./ShoppingCart";
 
-const pages = ["Collections", "Categories"];
-const paths = ["/collection", "/category"];
+const anchorIds = ["categories", "collections"];
 
 const Navbar = () => {
   const { classes } = useStyles();
@@ -77,16 +76,16 @@ const Navbar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {pages.map((page, index) => (
-                  <Link
+                {anchorIds.map((anchorId: string, index) => (
+                  <a
                     key={index}
                     className={classes.navMenuLink}
-                    to={paths[index]}
+                    href={`#${anchorId}`}
                   >
                     <MenuItem>
-                      <Typography textAlign="center">{page}</Typography>
+                      <Typography textAlign="center">{anchorId}</Typography>
                     </MenuItem>
-                  </Link>
+                  </a>
                 ))}
               </Menu>
             </>
