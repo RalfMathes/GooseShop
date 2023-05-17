@@ -1,4 +1,11 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import { makeStyles } from "tss-react/mui";
 import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
@@ -16,42 +23,61 @@ const StoreCollection = ({
   const renderMediaLeft = !isMobileView && idIsEven;
 
   return (
-    <Link className={classes.navMenuLink} to={`/collection/${id}`}>
-      <Card className={classes.collectionCardDesktop}>
-        <div className={classes.storeCollectionWrapper}>
-          {renderMediaLeft ? null : (
-            <CardMedia
-              className={classes.collectionCardMedia}
-              image={imgUrl}
-              title={name}
-            />
-          )}
-          <CardContent className={classes.collectionCardContent}>
-            <Typography
-              gutterBottom
-              variant="h5"
-              className={classes.contentTitle}
-            >
-              The {name} collection
-            </Typography>
-            <Typography variant="body1">{description}</Typography>
-          </CardContent>
-          {renderMediaLeft ? (
-            <CardMedia
-              className={classes.collectionCardMedia}
-              image={imgUrl}
-              title={name}
-            />
-          ) : null}
-        </div>
-      </Card>
-    </Link>
+    <Card className={classes.collectionCardDesktop}>
+      <div className={classes.storeCollectionWrapper}>
+        {renderMediaLeft ? null : (
+          <CardMedia
+            className={classes.collectionCardMedia}
+            image={imgUrl}
+            title={name}
+          />
+        )}
+        <CardContent className={classes.collectionCardContent}>
+          <Typography
+            gutterBottom
+            variant="h5"
+            className={classes.contentTitle}
+          >
+            The {name} collection
+          </Typography>
+          <Typography variant="body1">{description}</Typography>
+          <div className={classes.collectionButtonDiv}>
+            <Link className={classes.navMenuLink} to={`/collection/${id}`}>
+              <Button
+                className={classes.collectionButton}
+                variant="contained"
+                size="large"
+                endIcon={<KeyboardArrowRightIcon />}
+              >
+                Check it out
+              </Button>
+            </Link>
+          </div>
+        </CardContent>
+        {renderMediaLeft ? (
+          <CardMedia
+            className={classes.collectionCardMedia}
+            image={imgUrl}
+            title={name}
+          />
+        ) : null}
+      </div>
+    </Card>
   );
 };
 
 export default StoreCollection;
 
 const useStyles = makeStyles()((theme) => ({
+  collectionButton: {
+    top: "50%",
+  },
+  collectionButtonDiv: {
+    height: "50%",
+    display: "flex",
+    justifyContent: "center",
+    position: "relative",
+  },
   collectionCardDesktop: {
     width: "100%",
     marginTop: 50,
@@ -82,7 +108,6 @@ const useStyles = makeStyles()((theme) => ({
   contentTitle: {
     display: "flex",
     justifyContent: "center",
-    // backgroundColor: "#fb8b17",
   },
   flexBoxCenter: {
     alignItems: "center",
@@ -93,9 +118,11 @@ const useStyles = makeStyles()((theme) => ({
     textDecoration: "none",
   },
   storeCollectionWrapper: {
+    marginBottom: 20,
     [theme.breakpoints.up("sm")]: {
       display: "flex",
       flexDirection: "row",
+      marginBottom: 0,
     },
   },
 }));
