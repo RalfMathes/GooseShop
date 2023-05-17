@@ -18,4 +18,4 @@ Please note that this script executes `pkill node` at the end to kill the backen
 
 ---
 
-The contents of this projects are exclusively for demonstration purposes and not intended for actual usage. Don't get your feathers in a twist and let the goose loose.
+The contents of this project are exclusively for demonstration purposes and not intended for actual usage. Don't get your feathers in a twist and let the goose loose.
