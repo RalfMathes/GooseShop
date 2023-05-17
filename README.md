@@ -1,5 +1,7 @@
 # GooseShop
 
+![Goose](./goose_logo.png)
+
 A little shop for geese and non-geese
 
 ## Welcome to the goose shop
