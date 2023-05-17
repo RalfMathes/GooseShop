@@ -93,15 +93,6 @@ const Navbar = () => {
           ) : (
             <>
               <Box className={classes.flexBoxRight} />
-              {pages.map((page, index) => (
-                <Link
-                  key={index}
-                  className={classes.navBarLink}
-                  to={paths[index]}
-                >
-                  <Typography className={classes.navBarItem}>{page}</Typography>
-                </Link>
-              ))}
               <ShoppingCart />
             </>
           )}
