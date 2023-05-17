@@ -8,11 +8,11 @@ echo " ╚═════╝  ╚═════╝  ╚═════╝ ╚�
 echo ""
 echo "================================================================================"
 echo ""
-echo "Looking for node_modules folder in backend"
 while true; do
     read -p "Do you wish to execute the Install procedure? (Entering no skips to starting the project) [y/n] : " yn
     case $yn in
     [Yy]* )
+        echo "Looking for node_modules folder in backend"
         if [ -d "./backend/node_modules" ]; then
             while true; do
             read -p "node_modules folder exists in backend. Do you want to re-install? [y/n] : " yn
