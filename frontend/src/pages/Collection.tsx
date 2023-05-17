@@ -82,6 +82,9 @@ const useStyles = makeStyles()((theme) => ({
   centeredText: {
     textAlign: "center",
     marginBottom: 70,
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: 40,
+    },
   },
   hero: {
     width: "100%",
