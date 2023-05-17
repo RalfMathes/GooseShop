@@ -80,7 +80,8 @@ const Navbar = () => {
                   <a
                     key={index}
                     className={classes.navMenuLink}
-                    href={`#${anchorId}`}
+                    target="_parent"
+                    href={`/#${anchorId}`}
                   >
                     <MenuItem>
                       <Typography textAlign="center">{anchorId}</Typography>
