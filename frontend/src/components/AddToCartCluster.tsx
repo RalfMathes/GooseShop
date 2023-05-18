@@ -30,7 +30,7 @@ const AddToCartCluster = (item: StoreItemProps) => {
   };
 
   return (
-    <>
+    <div className={classes.flexBoxColumn}>
       {noItemsAdded ? (
         <Box className={classes.flexBoxCenter}>
           <Button variant="contained" onClick={handleIncreaseItem}>
@@ -41,6 +41,7 @@ const AddToCartCluster = (item: StoreItemProps) => {
         <>
           <Box className={classes.flexBoxCenter}>
             <Button
+              className={classes.compactButton}
               size="small"
               variant="contained"
               onClick={handleDecreaseItem}
@@ -51,6 +52,7 @@ const AddToCartCluster = (item: StoreItemProps) => {
               {itemCount} in cart
             </Typography>
             <Button
+              className={classes.compactButton}
               size="small"
               variant="contained"
               onClick={handleIncreaseItem}
@@ -65,7 +67,7 @@ const AddToCartCluster = (item: StoreItemProps) => {
           </Box>
         </>
       )}
-    </>
+    </div>
   );
 };
 
@@ -76,9 +78,21 @@ const useStyles = makeStyles()((theme) => ({
     marginLeft: 8,
     marginRight: 8,
   },
+  compactButton: {
+    minWidth: 40,
+  },
+  flexBoxColumn: {
+    display: "flex",
+    justifyContent: "center",
+    height: 83,
+    width: 163,
+    flexDirection: "column",
+  },
   flexBoxCenter: {
     display: "flex",
     justifyContent: "center",
     marginBottom: 10,
+    flexDirection: "row",
+    alignItems: "center",
   },
 }));
