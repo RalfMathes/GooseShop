@@ -13,12 +13,25 @@ const initialState: ShoppingCartState = {
   total: 0,
 };
 
+const getCartItemById = (state: ShoppingCartState, itemId: number) => {
+  return state.items.find((item) => {
+    return item.id === itemId;
+  });
+};
+
+const removeCartItemById = (state: ShoppingCartState, itemId: number) => {
+  state.items = state.items.filter((item) => {
+    return item.id != itemId;
+  });
+};
+
 const updateCountAndTotal = (state: ShoppingCartState) => {
-  state.count = state.items.reduce((sum, current) => sum + current.quantity, 0);
-  state.total = state.items.reduce(
-    (sum, current) => sum + current.price * current.quantity,
-    0
-  );
+  state.count = state.items.reduce((sum, current) => {
+    return sum + current.quantity;
+  }, 0);
+  state.total = state.items.reduce((sum, current) => {
+    return sum + current.price * current.quantity;
+  }, 0);
 };
 
 const shoppingCartSlice = createSlice({
@@ -28,8 +41,9 @@ const shoppingCartSlice = createSlice({
     increaseItem: (state, action) => {
       const targetId = action.payload[0];
       const targetPrice = action.payload[1];
+      const itemInCart = getCartItemById(state, targetId);
 
-      if (state.items.find((item) => item.id === targetId) == null) {
+      if (itemInCart == null) {
         state.items.push({ id: targetId, quantity: 1, price: targetPrice });
       } else {
         state.items.map((item) => {
@@ -42,8 +56,9 @@ const shoppingCartSlice = createSlice({
     },
     decreaseItem: (state, action) => {
       const targetId = action.payload;
+      const itemInCart = getCartItemById(state, targetId);
 
-      if (state.items.find((item) => item.id === targetId)?.quantity === 1) {
+      if (itemInCart?.quantity === 1) {
         state.items = state.items.filter((item) => item.id != targetId);
       } else {
         state.items.map((item) => {
@@ -56,7 +71,8 @@ const shoppingCartSlice = createSlice({
     },
     removeItem: (state, action) => {
       const targetId = action.payload;
-      state.items = state.items.filter((item) => item.id != targetId);
+
+      removeCartItemById(state, targetId);
       state.count = state.items.reduce(
         (sum, current) => sum + current.quantity,
         0
