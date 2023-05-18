@@ -9,6 +9,7 @@ import Category from "./pages/Category";
 import Collection from "./pages/Collection";
 import Home from "./pages/Home";
 import Item from "./pages/Item";
+import { fetchCategories } from "./redux/slices/categories/categories";
 import { fetchStoreItems } from "./redux/slices/storeItems/storeItems";
 import { AppDispatch } from "./redux/store";
 import theme from "./theme";
@@ -18,6 +19,7 @@ const App = () => {
 
   useEffect(() => {
     appDispatch(fetchStoreItems());
+    appDispatch(fetchCategories());
   }, [appDispatch]);
 
   return (
