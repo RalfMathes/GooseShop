@@ -12,7 +12,6 @@ import StoreCollection from "../components/StoreCollection";
 import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
 import useGetCategories from "../hooks/useGetCategories";
 import useGetCollections from "../hooks/useGetCollections";
-import { fetchCategories } from "../redux/slices/categories/categories";
 import { fetchCollections } from "../redux/slices/collections/collections";
 import { setTitle } from "../redux/slices/title/title";
 import { AppDispatch } from "../redux/store";
@@ -26,7 +25,6 @@ const Home = () => {
   const isMobileView = useGetBreakpointBool();
 
   useEffect(() => {
-    appDispatch(fetchCategories());
     appDispatch(fetchCollections());
     dispatch(setTitle("Home"));
   }, []);
