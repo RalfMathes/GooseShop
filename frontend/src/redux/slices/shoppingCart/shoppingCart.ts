@@ -46,11 +46,7 @@ const shoppingCartSlice = createSlice({
       if (itemInCart == null) {
         state.items.push({ id: targetId, quantity: 1, price: targetPrice });
       } else {
-        state.items.map((item) => {
-          if (item.id === targetId) {
-            item.quantity++;
-          }
-        });
+        itemInCart.quantity += 1;
       }
       updateCountAndTotal(state);
     },
@@ -59,13 +55,11 @@ const shoppingCartSlice = createSlice({
       const itemInCart = getCartItemById(state, targetId);
 
       if (itemInCart?.quantity === 1) {
-        state.items = state.items.filter((item) => item.id != targetId);
+        removeCartItemById(state, targetId);
       } else {
-        state.items.map((item) => {
-          if (item.id === targetId) {
-            item.quantity--;
-          }
-        });
+        if (itemInCart != null) {
+          itemInCart.quantity -= 1;
+        }
       }
       updateCountAndTotal(state);
     },
