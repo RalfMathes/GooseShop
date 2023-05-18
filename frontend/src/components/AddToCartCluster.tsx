@@ -14,19 +14,19 @@ import { StoreItemProps } from "../types/StoreItemProps";
 const AddToCartCluster = (item: StoreItemProps) => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
-  const itemCount = useGetItemCount(item?.id ?? 0);
+  const itemCount = useGetItemCount(item.id);
   const noItemsAdded = itemCount === 0;
 
   const handleIncreaseItem = () => {
-    dispatch(increaseItem([item?.id, item?.price]));
+    dispatch(increaseItem([item.id, item.price]));
   };
 
   const handleDecreaseItem = () => {
-    dispatch(decreaseItem(item?.id));
+    dispatch(decreaseItem(item.id));
   };
 
   const handleRemoveItem = () => {
-    dispatch(removeItem(item?.id));
+    dispatch(removeItem(item.id));
   };
 
   return (
