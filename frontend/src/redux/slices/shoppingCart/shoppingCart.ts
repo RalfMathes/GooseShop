@@ -13,16 +13,22 @@ const initialState: ShoppingCartState = {
   total: 0,
 };
 
+const updateCountAndTotal = (state: {
+  count: number;
+  items: CartItemProps[];
+  total: number;
+}) => {
+  state.count = state.items.reduce((sum, current) => sum + current.quantity, 0);
+  state.total = state.items.reduce(
+    (sum, current) => sum + current.price * current.quantity,
+    0
+  );
+};
+
 const shoppingCartSlice = createSlice({
   name: "shoppingCart",
   initialState: initialState,
   reducers: {
-    setTotal: (state) => {
-      state.total = state.items.reduce(
-        (sum, current) => sum + current.price * current.quantity,
-        0
-      );
-    },
     increaseItem: (state, action) => {
       const targetId = action.payload[0];
       const targetPrice = action.payload[1];
@@ -36,10 +42,7 @@ const shoppingCartSlice = createSlice({
           }
         });
       }
-      state.count = state.items.reduce(
-        (sum, current) => sum + current.quantity,
-        0
-      );
+      updateCountAndTotal(state);
     },
     decreaseItem: (state, action) => {
       const targetId = action.payload;
@@ -53,10 +56,7 @@ const shoppingCartSlice = createSlice({
           }
         });
       }
-      state.count = state.items.reduce(
-        (sum, current) => sum + current.quantity,
-        0
-      );
+      updateCountAndTotal(state);
     },
     removeItem: (state, action) => {
       const targetId = action.payload;
@@ -65,6 +65,7 @@ const shoppingCartSlice = createSlice({
         (sum, current) => sum + current.quantity,
         0
       );
+      updateCountAndTotal(state);
     },
   },
 });
@@ -74,5 +75,5 @@ export const selectShoppingCartCount = (state: RootState) =>
   state.shoppingCartReducer.count;
 export const selectShoppingCartTotal = (state: RootState) =>
   state.shoppingCartReducer.total;
-export const { setTotal, increaseItem, decreaseItem, removeItem } =
+export const { increaseItem, decreaseItem, removeItem } =
   shoppingCartSlice.actions;
