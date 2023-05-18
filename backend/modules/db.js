@@ -71,6 +71,16 @@ const itemsJson = [
     imgUrl: "/static/keycaps.webp",
     tags: ["mechanical keyboard", "mechanical keyboard supply"],
   },
+  {
+    id: 8,
+    categoryId: 4,
+    collectionId: 1,
+    name: "debug gosling",
+    description: "Oh gosh, i hope i got all the edge cases. What is this? Might this be a little gosling? And not just any gosling, it's a debug gosling! And he brings a very long wall of text with himself. But wouldn't you know that is exactly what we want! A good hearty wall of text to test out if everything works. Did you know a baby goose is called a gosling? I sure didn't. I just learned that you call it gosling a few moments ago, but then again, you might be reading this looooooong after i commited this entry. Unfortunately he can't be in the goose catgory because this is not a relational database and this little gosling has a lot of work to do. So while we're at it, how are you doing? I hope fine, i can't answer if that wasn't the case. So anway i thought this would be a tad more entertaining than just boring old lorem ipsum, and hey, you might have learned what a gosling is. But now i gotta go and take care of the actual debugging. I will leave you this little debugging gosling as a companion. He might grow up to be a big healthy debugging goose, who knows...",
+    price: 13.37,
+    imgUrl: "/static/gosling.jpeg",
+    tags: ["debugging", "gosling", "oddly enough not in the goose category..."],
+  },
 ];
 
 const categoriesJson = [
