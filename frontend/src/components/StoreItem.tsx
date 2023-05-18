@@ -35,7 +35,9 @@ const StoreItem = ({ ...item }: StoreItemProps) => {
           {formatCurrency(item.price)}
         </Typography>
       </CardContent>
-      <AddToCartCluster {...item} />
+      <div className={classes.centerDiv}>
+        <AddToCartCluster {...item} />
+      </div>
       <Stack className={classes.tagStack} direction="row" spacing={2}>
         {item.tags.map((tag: string, index: number) => (
           <Chip
@@ -57,6 +59,10 @@ export default StoreItem;
 const useStyles = makeStyles()(() => ({
   cardMedia: {
     height: 140,
+  },
+  centerDiv: {
+    display: "flex",
+    justifyContent: "center",
   },
   storeItemCard: {
     borderRadius: 10,
