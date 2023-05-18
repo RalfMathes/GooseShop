@@ -4,7 +4,7 @@ import { fetchStoreItems } from "../redux/slices/storeItems/storeItems";
 import { AppDispatch, RootState } from "../redux/store";
 import { StoreItemProps } from "../types/StoreItemProps";
 
-const useGetItems = (filterId: number) => {
+const useGetItem = (filterId: number) => {
   const appDispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     appDispatch(fetchStoreItems());
@@ -19,4 +19,4 @@ const useGetItems = (filterId: number) => {
   );
 };
 
-export default useGetItems;
+export default useGetItem;
