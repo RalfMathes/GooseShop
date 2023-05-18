@@ -38,7 +38,7 @@ const StoreItem = ({ ...item }: StoreItemProps) => {
       <div className={classes.centerDiv}>
         <AddToCartCluster {...item} />
       </div>
-      <Stack className={classes.tagStack} direction="row" spacing={2}>
+      <Stack className={classes.tagStack} direction="row">
         {item.tags.map((tag: string, index: number) => (
           <Chip
             key={index}
@@ -70,9 +70,10 @@ const useStyles = makeStyles()(() => ({
   },
   tagChip: {
     marginBottom: 10,
-    marginLeft: 10,
+    marginRight: 10,
   },
   tagStack: {
     flexWrap: "wrap",
+    marginLeft: 16,
   },
 }));
