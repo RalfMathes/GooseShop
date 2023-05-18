@@ -1,4 +1,6 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import MobileSpacer from "./components/MobileSpacer";
 import Navbar from "./components/Navbar";
@@ -7,9 +9,17 @@ import Category from "./pages/Category";
 import Collection from "./pages/Collection";
 import Home from "./pages/Home";
 import Item from "./pages/Item";
+import { fetchStoreItems } from "./redux/slices/storeItems/storeItems";
+import { AppDispatch } from "./redux/store";
 import theme from "./theme";
 
 const App = () => {
+  const appDispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    appDispatch(fetchStoreItems());
+  }, [appDispatch]);
+
   return (
     <>
       <ThemeProvider theme={theme}>
