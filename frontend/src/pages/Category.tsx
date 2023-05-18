@@ -1,12 +1,10 @@
 import { Container, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { makeStyles } from "tss-react/mui";
 import StoreItem from "../components/StoreItem";
 import useFilterItems from "../hooks/useFilterItems";
 import useGetCategory from "../hooks/useGetCategory";
-import { setTitle } from "../redux/slices/title/title";
 import { StoreItemProps } from "../types/StoreItemProps";
 import capitaliseWord from "../utilities/captialiseWord";
 
@@ -19,11 +17,6 @@ const Category = () => {
   const [visibleItems, setVisibleItems] =
     useState<StoreItemProps[]>(filteredItems);
   const [activeTag, setActiveTag] = useState("");
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setTitle("Category: " + category?.name));
-  }, []);
 
   useEffect(() => {
     if (activeTag !== "") {

@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { makeStyles } from "tss-react/mui";
 import useGetItem from "../hooks/useGetItem";
-import { setTitle } from "../redux/slices/title/title";
 import capitaliseWord from "../utilities/captialiseWord";
 import formatCurrency from "../utilities/formatCurrency";
 
@@ -15,9 +14,6 @@ const Item = () => {
   const item = useGetItem(filterId);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(setTitle(item?.name));
-  }, []);
 
   return (
     <>
