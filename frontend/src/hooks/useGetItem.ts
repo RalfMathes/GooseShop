@@ -10,13 +10,11 @@ const useGetItem = (filterId: number) => {
     appDispatch(fetchStoreItems());
   }, []);
 
-  const unfilteredCollections = useSelector<RootState, StoreItemProps[]>(
+  const unfilteredItems = useSelector<RootState, StoreItemProps[]>(
     (state) => state.storeItemsReducer.items
   );
 
-  return unfilteredCollections.find(
-    (item: StoreItemProps) => item.id == filterId
-  );
+  return unfilteredItems.find((item: StoreItemProps) => item.id == filterId);
 };
 
 export default useGetItem;
