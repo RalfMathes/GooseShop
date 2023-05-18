@@ -13,11 +13,7 @@ const initialState: ShoppingCartState = {
   total: 0,
 };
 
-const updateCountAndTotal = (state: {
-  count: number;
-  items: CartItemProps[];
-  total: number;
-}) => {
+const updateCountAndTotal = (state: ShoppingCartState) => {
   state.count = state.items.reduce((sum, current) => sum + current.quantity, 0);
   state.total = state.items.reduce(
     (sum, current) => sum + current.price * current.quantity,
