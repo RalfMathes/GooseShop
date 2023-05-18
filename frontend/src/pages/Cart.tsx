@@ -1,11 +1,8 @@
 import { Container, Grid, Typography } from "@mui/material";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { makeStyles } from "tss-react/mui";
 import CartItem from "../components/CartItem";
 import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
-import { setTotal } from "../redux/slices/shoppingCart/shoppingCart";
-import { setTitle } from "../redux/slices/title/title";
 import { RootState } from "../redux/store";
 import { CartItemProps } from "../types/CartItemProps";
 import formatCurrency from "../utilities/formatCurrency";
@@ -19,16 +16,6 @@ const Cart = () => {
   const total = useSelector<RootState, number>(
     (state) => state.shoppingCartReducer.total
   );
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setTitle("Cart"));
-  }, []);
-
-  useEffect(() => {
-    dispatch(setTotal());
-  }, [items]);
 
   return (
     <>
