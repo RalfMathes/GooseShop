@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import type { RootState } from "../../store";
 
-type CollectionsProps = {
+type CollectionProps = {
   id: number;
   name: string;
   imgUrl: string;
@@ -10,7 +10,7 @@ type CollectionsProps = {
 
 export interface CollectionsState {
   loading: boolean;
-  collections: CollectionsProps[];
+  collections: CollectionProps[];
   error: string;
 }
 
@@ -20,7 +20,7 @@ const initialState: CollectionsState = {
   error: "",
 };
 
-const fetchCollections = createAsyncThunk<CollectionsProps[]>(
+const fetchCollections = createAsyncThunk<CollectionProps[]>(
   "collections/fetchCollections",
   async () => {
     const response = await axios.get("http://localhost:3000/collections");
