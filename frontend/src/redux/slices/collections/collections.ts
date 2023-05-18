@@ -1,12 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { CollectionProps } from "../../../types/CollectionProps";
 import type { RootState } from "../../store";
-
-type CollectionProps = {
-  id: number;
-  name: string;
-  imgUrl: string;
-};
 
 export interface CollectionsState {
   loading: boolean;
