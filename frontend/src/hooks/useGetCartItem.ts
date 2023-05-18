@@ -1,11 +1,7 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { StoreItemProps } from "../types/StoreItemProps";
+import useGetStoreItems from "./useGetStoreItems";
 
 const useGetCartItem = (id: number) => {
-  const storeItems: StoreItemProps[] = useSelector<RootState, StoreItemProps[]>(
-    (state) => state.storeItemsReducer.items
-  );
+  const storeItems = useGetStoreItems();
   return storeItems.find((item) => item.id === id);
 };
 

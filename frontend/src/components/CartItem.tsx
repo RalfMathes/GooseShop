@@ -10,7 +10,6 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { makeStyles } from "tss-react/mui";
@@ -20,20 +19,13 @@ import {
   increaseItem,
   removeItem,
 } from "../redux/slices/shoppingCart/shoppingCart";
-import { fetchStoreItems } from "../redux/slices/storeItems/storeItems";
-import { AppDispatch } from "../redux/store";
 import { CartItemProps } from "../types/CartItemProps";
 import formatCurrency from "../utilities/formatCurrency";
 
 const CartItem = ({ id, quantity, price }: CartItemProps) => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
-  const appDispatch = useDispatch<AppDispatch>();
   const item = useGetCartItem(id);
-
-  useEffect(() => {
-    appDispatch(fetchStoreItems());
-  }, []);
 
   if (item == null) return null;
 
