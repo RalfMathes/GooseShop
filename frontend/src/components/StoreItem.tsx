@@ -55,17 +55,8 @@ const StoreItem = ({ ...item }: StoreItemProps) => {
 export default StoreItem;
 
 const useStyles = makeStyles()(() => ({
-  cartCountText: {
-    marginLeft: 8,
-    marginRight: 8,
-  },
   cardMedia: {
     height: 140,
-  },
-  flexBoxCenter: {
-    display: "flex",
-    justifyContent: "center",
-    marginBottom: 10,
   },
   storeItemCard: {
     borderRadius: 10,
