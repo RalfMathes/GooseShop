@@ -48,17 +48,7 @@ const Category = () => {
               xs={12}
               sm={6}
             >
-              <StoreItem
-                id={item.id}
-                categoryId={item.categoryId}
-                collectionId={item.collectionId}
-                name={item.name}
-                description={item.description}
-                price={item.price}
-                imgUrl={item.imgUrl}
-                tags={item.tags}
-                onTagClick={storeItemCallback}
-              />
+              <StoreItem {...item} />
             </Grid>
           ))}
         </Grid>
