@@ -67,10 +67,6 @@ const shoppingCartSlice = createSlice({
       const targetId = action.payload;
 
       removeCartItemById(state, targetId);
-      state.count = state.items.reduce(
-        (sum, current) => sum + current.quantity,
-        0
-      );
       updateCountAndTotal(state);
     },
   },
