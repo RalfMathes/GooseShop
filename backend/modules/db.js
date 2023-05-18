@@ -102,6 +102,12 @@ const categoriesJson = [
     description: "Mechanical keyboards and supplies. Ranging from budget keyboards to enthusiast grade high end keyboards.",
     imgUrl: "/static/keyboards.webp",
   },
+  {
+    id: 4,
+    name: "debug",
+    description: "The debug category. If you can read this, you are either looking ad the backend code, or you are reading a commit. At the time of writing the description of categories are not being displayed anywhere. I could just have skipped giving categories descriptions altogether but i guess it's better to have them and not use them than to not have them and then needing them.",
+    imgUrl: "/static/debug.webp",
+  }
 ]
 const collectionsJson = [
   {
