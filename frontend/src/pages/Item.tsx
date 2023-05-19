@@ -2,7 +2,6 @@ import { Chip, Container, Stack, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { makeStyles } from "tss-react/mui";
 import AddToCartCluster from "../components/AddToCartCluster";
-import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
 import useGetItem from "../hooks/useGetItem";
 import capitaliseWord from "../utilities/captialiseWord";
 import formatCurrency from "../utilities/formatCurrency";
@@ -12,7 +11,6 @@ const Item = () => {
   const filterId = Number.parseInt(itemId ?? "1");
   const { classes } = useStyles();
   const item = useGetItem(filterId);
-  const isMobileView = useGetBreakpointBool();
 
   return (
     <>
@@ -41,7 +39,6 @@ const Item = () => {
                 color="primary"
                 size="small"
                 label={tag}
-                // onClick={(event) => onTagClick(event, tag)}
               />
             ))}
           </Stack>
