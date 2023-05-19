@@ -1,7 +1,6 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
-  Box,
   Grid,
   IconButton,
   Menu,
@@ -14,6 +13,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "tss-react/mui";
 import useGetBreakpointBool from "../hooks/useGetBreakpointBool";
+import SearchBar from "./SearchBar";
 import ShoppingCart from "./ShoppingCart";
 
 const anchorIds = ["categories", "collections"];
@@ -41,7 +41,7 @@ const Navbar = () => {
         <Grid
           container
           direction="row"
-          justifyContent="space-around"
+          justifyContent={isMobileView ? "space-around" : "space-between"}
           alignItems="center"
         >
           <Link className={classes.navBarLink} to="/">
@@ -92,7 +92,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Box className={classes.flexBoxRight} />
+              <SearchBar searchTags={[""]} />
               <ShoppingCart />
             </>
           )}
@@ -117,10 +117,7 @@ const useStyles = makeStyles()(() => ({
   appBarMobile: {
     backgroundColor: "rgba(255, 247, 238, .85)",
     backdropFilter: "blur(4px)",
-    // border: "solid",
-    // borderColor: "#fb8b17",
     borderRadius: "15px",
-    // borderWidth: 2,
     bottom: 0,
     left: "2%",
     marginBottom: "6px",
