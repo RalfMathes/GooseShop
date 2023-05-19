@@ -61,7 +61,12 @@ const AddToCartCluster = (item: StoreItemProps) => {
             </Button>
           </Box>
           <Box className={classes.flexBoxCenter}>
-            <Button size="small" variant="contained" onClick={handleRemoveItem}>
+            <Button
+              className={classes.removeButton}
+              size="small"
+              variant="contained"
+              onClick={handleRemoveItem}
+            >
               Remove Item
             </Button>
           </Box>
@@ -77,6 +82,14 @@ const useStyles = makeStyles()((theme) => ({
   cartCountText: {
     marginLeft: 8,
     marginRight: 8,
+    border: "solid",
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: "#fb8b17",
+    height: 32,
+    width: 90,
+    textAlign: "center",
+    alignSelf: "center",
   },
   compactButton: {
     minWidth: 40,
@@ -85,7 +98,7 @@ const useStyles = makeStyles()((theme) => ({
     display: "flex",
     justifyContent: "center",
     height: 83,
-    width: 163,
+    width: 190,
     flexDirection: "column",
   },
   flexBoxCenter: {
@@ -94,5 +107,8 @@ const useStyles = makeStyles()((theme) => ({
     marginBottom: 10,
     flexDirection: "row",
     alignItems: "center",
+  },
+  removeButton: {
+    width: 190,
   },
 }));
