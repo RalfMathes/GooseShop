@@ -48,7 +48,7 @@ const Category = () => {
               xs={12}
               sm={6}
             >
-              <StoreItem {...item} />
+              <StoreItem {...item} onTagClick={storeItemCallback} />
             </Grid>
           ))}
         </Grid>

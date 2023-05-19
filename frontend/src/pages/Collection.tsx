@@ -44,7 +44,7 @@ const Collection = () => {
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {visibleItems.map((item) => (
             <Grid key={item.id} item xs={12} sm={6}>
-              <StoreItem {...item} />
+              <StoreItem {...item} onTagClick={storeItemCallback} />
             </Grid>
           ))}
         </Grid>
