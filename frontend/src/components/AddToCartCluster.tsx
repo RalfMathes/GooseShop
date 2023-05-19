@@ -78,7 +78,7 @@ const AddToCartCluster = (item: StoreItemProps) => {
 
 export default AddToCartCluster;
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(() => ({
   cartCountText: {
     marginLeft: 8,
     marginRight: 8,
